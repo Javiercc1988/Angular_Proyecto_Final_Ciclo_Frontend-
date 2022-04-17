@@ -1,0 +1,56 @@
+$roboto: "Roboto", sans-serif;
+
+@mixin fontStyles($font-family, $font-weight, $font-style: normal) {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+
+.font1{
+    font-size: 2rem;
+}
+.font2{
+    font-size: 1.5rem;
+}
+.font3{
+    font-size: 1.2rem;
+}
+.font4{
+    font-size: .8rem;
+}
+.font5{
+    font-size: .5rem;
+}
+
+
+.rbt300 {
+  @include fontStyles($roboto, 300);
+}
+
+.rbt300i {
+  @include fontStyles($roboto, 300, italic);
+}
+
+.rbt400 {
+  @include fontStyles($roboto, 400);
+}
+
+.rbt400i {
+  @include fontStyles($roboto, 400, italic);
+}
+
+.rbt500 {
+  @include fontStyles($roboto, 500);
+}
+
+.rbt500i {
+  @include fontStyles($roboto, 500, italic);
+}
+
+.rbt700 {
+  @include fontStyles($roboto, 700);
+}
+
+.rbt700i {
+  @include fontStyles($roboto, 700, italic);
+}
