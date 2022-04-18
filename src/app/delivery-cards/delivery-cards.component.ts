@@ -9,23 +9,23 @@ export class DeliveryCardsComponent implements OnInit {
   datos: any = [
     {
       icono: 'fa-solid fa-truck',
-      titulo: 'dasdada',
-      descripcion: 'dasdad',
+      titulo: 'Envio rápido y gratuito',
+      descripcion: 'Compras superiores a 50€',
     },
     {
-      icono: 'fa-solid fa-truck',
-      titulo: 'dasdada',
-      descripcion: 'dasdad',
+      icono: 'fa-solid fa-shield-halved',
+      titulo: 'Pago Seguro',
+      descripcion: 'Tus compras con tranquilidad',
     },
     {
-      icono: 'fa-solid fa-truck',
-      titulo: 'dasdada',
-      descripcion: 'dasdad',
+      icono: 'fa-solid fa-arrow-rotate-left',
+      titulo: 'Devolución gratuita',
+      descripcion: 'Si tienes algún problema',
     },
     {
-      icono: 'fa-solid fa-truck',
-      titulo: 'dasdada',
-      descripcion: 'dasdad',
+      icono: 'fa-solid fa-headset',
+      titulo: 'Atención al cliente',
+      descripcion: 'Atención personalizada',
     },
   ];
   constructor() {}

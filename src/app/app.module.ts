@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
 import { DeliveryCardsComponent } from './delivery-cards/delivery-cards.component';
+import { CatProdSliderComponent } from './cat-prod-slider/cat-prod-slider.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { DeliveryCardsComponent } from './delivery-cards/delivery-cards.componen
     FooterComponent,
     SliderComponent,
     DeliveryCardsComponent,
+    CatProdSliderComponent,
   ],
   imports: [
     BrowserModule,

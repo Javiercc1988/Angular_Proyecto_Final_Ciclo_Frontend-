@@ -1,0 +1,5 @@
+<div class="container position-relative d-flex justify-content-center">
+    <button class="uno position-absolute d-block" [disabled]="index === 0" (click)="prev()">BACK</button>
+    <img style="width: 450px; height: 500px;"src="{{slideData[index]}}" alt="">
+    <button class="dos position-absolute d-block" [disabled]="index === slideData.length -1" (click)="next()">NEXT</button>
+</div>
