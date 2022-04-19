@@ -11,6 +11,12 @@ export class CatProdSliderComponent implements OnInit {
     '../../assets/catProdSlide/catProdSlide_1.jpg',
     '../../assets/catProdSlide/catProdSlide_2.jpg',
     '../../assets/catProdSlide/catProdSlide_3.jpg',
+    '../../assets/catProdSlide/catProdSlide_2.jpg',
+    '../../assets/catProdSlide/catProdSlide_3.jpg',
+    '../../assets/catProdSlide/catProdSlide_1.jpg',
+    '../../assets/catProdSlide/catProdSlide_2.jpg',
+    '../../assets/catProdSlide/catProdSlide_3.jpg',
+    '../../assets/catProdSlide/catProdSlide_1.jpg',
   ];
 
   index: number = 0;
@@ -21,6 +27,7 @@ export class CatProdSliderComponent implements OnInit {
 
   next() {
     this.index ++;
+    console.log(this.index, this.slideData.length)
   }
 
   prev() {

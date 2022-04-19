@@ -1,5 +1,30 @@
-<div class="container position-relative d-flex justify-content-center">
+<!-- <div class="container position-relative d-flex justify-content-center">
     <button class="uno position-absolute d-block" [disabled]="index === 0" (click)="prev()">BACK</button>
-    <img style="width: 450px; height: 500px;"src="{{slideData[index]}}" alt="">
+    <div class="sliderpropio">
+        <img  style="width: 400px; height: 450px;" src="{{slideData[index]}}" alt="">
+        <img  style="width: 400px; height: 450px;" src="{{slideData[index+1]}}" alt="">
+        <img  style="width: 400px; height: 450px;" src="{{slideData[index+2]}}" alt="">
+    </div>
     <button class="dos position-absolute d-block" [disabled]="index === slideData.length -1" (click)="next()">NEXT</button>
+</div> -->
+
+<div class="container">
+    <div class="galeria">
+        <div class="lista-imagenes d-flex flex-nowrap overflow-hidden">
+            <button [disabled]="index === 0" (click)="prev()">back</button>
+            <div class="row">
+                <div class="col-4">
+                    <img  style="width: 400px; height: 450px;" src="{{slideData[index]}}" alt="">
+                </div>
+                <div class="col-4">
+                    <img  style="width: 400px; height: 450px;" src="{{slideData[index+1]}}" alt="">
+                </div>
+                <div class="col-4">
+                    <img  style="width: 400px; height: 450px;" src="{{slideData[index+2]}}" alt="">
+                </div>
+            </div>
+            <button [disabled]="index === slideData.length -3" (click)="next()">NEXT</button>
+
+        </div>
+    </div>
 </div>
