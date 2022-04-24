@@ -1,0 +1,11 @@
+.big-padding{
+    background-color: #FFFDF5;
+    padding: 10rem 5rem!important;
+}
+
+@media (max-width: 820px) {
+    .big-padding{
+
+        padding: 10rem 2rem!important;
+    }
+ }
