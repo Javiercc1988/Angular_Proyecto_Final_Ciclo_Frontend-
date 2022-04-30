@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IDeliveryCards } from 'src/app/interfaces/IDeliveryCards.interface';
 
 @Component({
   selector: 'app-delivery-cards',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delivery-cards.component.scss'],
 })
 export class DeliveryCardsComponent implements OnInit {
-  datos: any = [
+  datos: IDeliveryCards[] = [
     {
       icono: 'fa-solid fa-truck',
       titulo: 'Envio rápido y gratuito',

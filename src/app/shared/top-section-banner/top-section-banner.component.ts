@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { backgroundStyle } from 'src/app/interfaces/backgroundStyle.interface';
+import { IBackgroundStyle } from 'src/app/interfaces/IBackgroundStyle.interface';
+import { ITopSectionBanner } from 'src/app/interfaces/ITopBanner.interface';
 
 @Component({
   selector: 'app-top-section-banner',
@@ -7,8 +8,10 @@ import { backgroundStyle } from 'src/app/interfaces/backgroundStyle.interface';
   styleUrls: ['./top-section-banner.component.scss'],
 })
 export class TopSectionBannerComponent implements OnInit {
-  @Input() clase: backgroundStyle = {
-    backgroundStyle: '',
+  @Input() topBanner: ITopSectionBanner = {
+    banner: '',
+    title: '',
+    subtitle:''
   };
 
   constructor() {}

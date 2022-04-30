@@ -1,0 +1,9 @@
+<section class="partners">
+    <h1 class="title-section font1"> Nuestros Colaboradores</h1>
+        <ul class="d-flex justify-content-around reset-list partners-list">
+            <li class="partners" *ngFor="let partner of partnersList">
+                <img class="img-fluid" src="{{partner.logo}}" alt="" srcset="" width="70px" height="70px">
+                <p class="partner-name">{{partner.name}}</p>
+            </li>
+        </ul>
+</section>

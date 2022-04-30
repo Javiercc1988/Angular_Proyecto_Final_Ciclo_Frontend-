@@ -15,6 +15,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { HomeComponent } from './pages/home/home.component';
 import { Page404Component } from './pages/page404/page404.component';
 import { TopSectionBannerComponent } from './shared/top-section-banner/top-section-banner.component';
+import { PartnersComponent } from './shared/partners/partners.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TopSectionBannerComponent } from './shared/top-section-banner/top-secti
     HomeComponent,
     Page404Component,
     TopSectionBannerComponent,
+    PartnersComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,12 +9,12 @@ const routes: Routes = [];
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      {path: 'home', component:HomeComponent},
-      {path: 'about-us', component:AboutUsComponent},
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      { path: 'home', component: HomeComponent },
+      { path: 'about-us', component: AboutUsComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', component: Page404Component },
-
-    ])],
+    ]),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
