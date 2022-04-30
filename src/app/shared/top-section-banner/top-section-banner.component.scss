@@ -1,0 +1,37 @@
+.container-image{
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    background-position: center;
+}
+
+.aboutUs-image-background{
+    background-image: url('../../../assets/top-section-banner/aboutUs.jpg');
+}
+
+
+.text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    color: white;
+}
+
+@media (max-width: 912px){
+    .text-container{
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 768px){
+    .container-image {
+      background-position: unset;
+  
+    }
+}
