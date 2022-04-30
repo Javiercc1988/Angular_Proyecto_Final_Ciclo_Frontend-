@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { SliderComponent } from './slider/slider.component';
-import { DeliveryCardsComponent } from './delivery-cards/delivery-cards.component';
-import { CatProdSliderComponent } from './cat-prod-slider/cat-prod-slider.component';
-import { InfoImageButtonComponent } from './info-image-button/info-image-button.component';
-import { ParallaxComponent } from './parallax/parallax.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SliderComponent } from './shared/slider/slider.component';
+import { DeliveryCardsComponent } from './shared/delivery-cards/delivery-cards.component';
+import { CatProdSliderComponent } from './shared/cat-prod-slider/cat-prod-slider.component';
+import { InfoImageButtonComponent } from './shared/info-image-button/info-image-button.component';
+import { ParallaxComponent } from './shared/parallax/parallax.component';
 import { ShopButtonComponent } from './shared/shop-button/shop-button.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,12 @@ import { ShopButtonComponent } from './shared/shop-button/shop-button.component'
     InfoImageButtonComponent,
     ParallaxComponent,
     ShopButtonComponent,
+    AboutUsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule
   ],
   providers: [],

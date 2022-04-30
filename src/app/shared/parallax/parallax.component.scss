@@ -3,7 +3,7 @@
     background-image: url('../../assets/parallax/1.jpg');
   
     /* Set a specific height */
-    min-height: 500px;
+    min-height: 700px;
   
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -14,4 +14,11 @@
 
 .back-color{
   background-color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 768px){
+  .parallax {
+    min-height: 500px;
+
+  }
 }
