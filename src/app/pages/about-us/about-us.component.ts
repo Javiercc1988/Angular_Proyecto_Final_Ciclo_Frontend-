@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { backgroundStyle } from 'src/app/interfaces/backgroundStyle.interface';
 
 @Component({
   selector: 'app-about-us',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutUsComponent implements OnInit {
 
+  topBackgroundImage:backgroundStyle = {
+    backgroundStyle: 'aboutUs-image-background'
+  }
   constructor() { }
 
   ngOnInit(): void {

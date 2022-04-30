@@ -13,6 +13,8 @@ import { ParallaxComponent } from './shared/parallax/parallax.component';
 import { ShopButtonComponent } from './shared/shop-button/shop-button.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { HomeComponent } from './pages/home/home.component';
+import { Page404Component } from './pages/page404/page404.component';
+import { TopSectionBannerComponent } from './shared/top-section-banner/top-section-banner.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { HomeComponent } from './pages/home/home.component';
     ShopButtonComponent,
     AboutUsComponent,
     HomeComponent,
+    Page404Component,
+    TopSectionBannerComponent,
   ],
   imports: [
     BrowserModule,
