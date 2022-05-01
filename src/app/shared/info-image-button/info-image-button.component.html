@@ -1,11 +1,24 @@
-<section class="container-fluid big-padding p-5">
-    <div class="row d-flex justify-content-center">
-            <img class="col-xxl-4 col-xl-4 col-sm-6 img-fluid" src="../../assets/info-images/2.jpg" alt="" srcset="">
+<section [ngClass]="{'little-padding': infoImage.littlePadding, 'big-padding': !infoImage.littlePadding}" class="container-fluid big-padding p-5">
+
+    <div [ngClass]="{'flex-row-reverse': infoImage.flexReverse}" class="row d-flex justify-content-center ">
+
+            <img class="col-xxl-4 col-xl-4 col-sm-6 img-fluid" [src]="infoImage.img" alt="Fundadora mirando camara">
+
             <div class="col-xxl-3 col-xl-3 col-md-4 col-sm-6 d-flex flex-column justify-content-center mt-5 ms-lg-5 ms-0">
-                <h1 class="mb-lg-4 mb-md-0">Siente la autentica experiencia</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.</p>
-                <p class="mt-lg-4 mt-md-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.</p>
-                <app-shop-button></app-shop-button>
+                <h1 class="mb-lg-4 mb-md-0">{{infoImage.title}}</h1>
+                <p>{{infoImage.firstParagraph}}</p>
+                <p *ngIf="infoImage.secondParagraph" class="mt-lg-4 mt-md-0">{{infoImage.secondParagraph}}</p>
+
+                <div *ngIf="infoImage.button">
+                    <app-shop-button></app-shop-button>
+                </div> <!-- Cierre componente botton -->
+
+                <div class="firma" *ngIf="infoImage.signature">
+                    <img src="../../../assets/info-images/firma.png" alt="firma">
+                    <h3>Clara Lagos</h3>
+                    <h5 class="font4">CEO -nombre-</h5>
+                </div><!-- Cierre Firma -->
+
             </div>
     </div>
 </section>

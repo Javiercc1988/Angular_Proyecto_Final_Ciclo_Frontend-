@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IBackgroundStyle } from 'src/app/interfaces/IBackgroundStyle.interface';
 import { ITopSectionBanner } from 'src/app/interfaces/ITopBanner.interface';
 
 @Component({

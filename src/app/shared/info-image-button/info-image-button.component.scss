@@ -1,11 +1,24 @@
-.big-padding{
-    background-color: #FFFDF5;
-    padding: 10rem 5rem!important;
+.big-padding {
+  background-color: #fffdf5;
+  padding: 10rem 5rem !important;
+}
+
+.little-padding {
+  padding: 5rem !important;
+}
+
+.firma {
+  h3 {
+    font-weight: 500;
+    margin: 0;
+  }
+  h5 {
+    font-weight: 100;
+  }
 }
 
 @media (max-width: 820px) {
-    .big-padding{
-
-        padding: 10rem 2rem!important;
-    }
- }
+  .big-padding {
+    padding: 10rem 2rem !important;
+  }
+}
