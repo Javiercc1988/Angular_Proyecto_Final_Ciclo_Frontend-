@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IInfoImage } from 'src/app/interfaces/IInfoImage.interface';
+import { ITitleSection } from 'src/app/interfaces/ITitleSection.interface';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,31 @@ import { IInfoImage } from 'src/app/interfaces/IInfoImage.interface';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  titleCatProd:ITitleSection = {
+    title: 'Categoría de productos',
+    subtitle: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea sequi, reiciendis voluptate minima.',
+    style: 'container-fluid p-3 text-center',
+    styleTitle:'rbt700 mt-3 mb-2',
+    styleSubtitle:'rbt300 font3 mt-3 mb-5',
+  }
+
+  titleNewProd:ITitleSection = {
+    title: 'Nuevos productos',
+    subtitle: 'Conoce nuestra nueva colección',
+    style: 'container-fluid p-3',
+    styleTitle:'rbt700 mt-3 mb-2',
+    styleSubtitle:'rbt300 font3 mt-3 mb-5',
+  }
+
+  titleTopSales:ITitleSection = {
+    title: 'Top Ventas',
+    subtitle: 'No podrás dejarlos escapar',
+    style: 'container-fluid p-3',
+    styleTitle:'rbt700 mt-3 mb-2',
+    styleSubtitle:'rbt300 font3 mt-3 mb-5',
+  }
+
 
   infoImageStep1:IInfoImage = {
     img: "../../assets/info-images/3.jpg",

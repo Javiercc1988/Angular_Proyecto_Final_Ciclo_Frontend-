@@ -16,6 +16,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { Page404Component } from './pages/page404/page404.component';
 import { TopSectionBannerComponent } from './shared/top-section-banner/top-section-banner.component';
 import { PartnersComponent } from './shared/partners/partners.component';
+import { TeamCardsComponent } from './pages/about-us/team-cards/team-cards.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { TitleSectionComponent } from './shared/title-section/title-section.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { PartnersComponent } from './shared/partners/partners.component';
     Page404Component,
     TopSectionBannerComponent,
     PartnersComponent,
+    TeamCardsComponent,
+    ContactComponent,
+    TitleSectionComponent,
   ],
   imports: [
     BrowserModule,
