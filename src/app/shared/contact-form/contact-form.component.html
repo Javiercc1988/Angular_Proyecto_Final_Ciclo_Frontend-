@@ -1,0 +1,34 @@
+<section>
+  <div class="container margin">
+    <div class="row gx-1 justify-content-center">
+      <div class="col-md-6 col-sm-12">
+        <h1>{{ contactDescription.title }}</h1>
+        <p class="subtitulo">
+          {{ contactDescription.subTitle }}
+        </p>
+        <ul
+          class="icons d-flex reset-list"
+          *ngFor="let icon of contactDescription.icons"
+        >
+          <div>
+            <li class="icon" [innerHTML]="icon.icon"></li>
+          </div>
+          <div class="d-flex descriptions flex-column justify-content-end">
+            <li class="icons-title">{{ icon.title }}</li>
+            <li class="icons-subtitle">{{ icon.subtitle }}</li>
+          </div>
+        </ul>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <div class="d-flex flex-column form">
+          <input type="text" placeholder="Nombre completo" />
+          <input type="text" placeholder="Email" />
+          <input type="text" placeholder="Teléfono" />
+          <input type="text" placeholder="Texto" />
+          <button type="button" class="btn boton mt-5">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,110 @@
+@import "../../../styles/colors";
+
+.margin {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.subtitulo {
+  font-weight: 100;
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+}
+
+.form {
+  border-radius: 10px;
+  padding: 3rem 1rem;
+  background-color: #eeeeeeab;
+  margin: 0 1rem;
+}
+
+.form input {
+  padding: 1rem;
+  margin: 1rem 0;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(153, 153, 153, 0.247);
+  font-weight: 100;
+  outline: none;
+  transition: 0.5s all ease-in-out;
+}
+
+.form input:focus {
+  border-color: $orange;
+}
+
+.icons {
+  margin: 1rem 0;
+}
+
+.icons-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 0.5rem;
+}
+
+.icons-subtitle {
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+
+.icon {
+  margin: 1.5rem 1rem 0 0;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-size: 1.7rem;
+  background-color: $orange;
+  color: white;
+  padding: .8rem;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.boton {
+  padding: 1rem 0;
+  background-color: $orange;
+  color: #fff;
+  max-width: 50%;
+}
+
+.boton:hover {
+  background-color: transparent;
+  color: $orange;
+  border: 1px solid $orange;
+}
+
+@media (max-width: 767px) {
+  .icons {
+    margin-bottom: 3rem;
+  }
+}
+@media (max-width: 684px) {
+  .margin {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+  }
+  
+  .subtitulo {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .icon {
+    margin: 0rem 1rem 0 0;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+}

@@ -1,5 +1,8 @@
+@import '../../../styles/colors';
+
+
 .active{
-    background-color: orange!important;
+    background-color: $orange!important;
     color: white!important;
 }
 

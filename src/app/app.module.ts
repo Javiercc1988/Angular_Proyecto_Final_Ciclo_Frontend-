@@ -19,6 +19,7 @@ import { PartnersComponent } from './shared/partners/partners.component';
 import { TeamCardsComponent } from './pages/about-us/team-cards/team-cards.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { TitleSectionComponent } from './shared/title-section/title-section.component';
+import { ContactFormComponent } from './shared/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { TitleSectionComponent } from './shared/title-section/title-section.comp
     TeamCardsComponent,
     ContactComponent,
     TitleSectionComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
