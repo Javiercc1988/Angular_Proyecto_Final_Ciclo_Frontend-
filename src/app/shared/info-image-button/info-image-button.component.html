@@ -2,9 +2,9 @@
 
     <div [ngClass]="{'flex-row-reverse': infoImage.flexReverse}" class="row d-flex justify-content-center ">
 
-            <img class="col-xxl-4 col-xl-4 col-sm-6 img-fluid" [src]="infoImage.img" alt="Fundadora mirando camara">
+            <img class="col-xxl-4 col-xl-8 col-md-6 col-sm-6 img-fluid" [src]="infoImage.img" alt="Fundadora mirando camara">
 
-            <div class="col-xxl-3 col-xl-3 col-md-4 col-sm-6 d-flex flex-column justify-content-center mt-5 ms-lg-5 ms-0">
+            <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-6 d-flex flex-column justify-content-center mt-5 mt-lg-5 ms-lg-5">
                 <h1 class="mb-lg-4 mb-md-0">{{infoImage.title}}</h1>
                 <p>{{infoImage.firstParagraph}}</p>
                 <p *ngIf="infoImage.secondParagraph" class="mt-lg-4 mt-md-0">{{infoImage.secondParagraph}}</p>
