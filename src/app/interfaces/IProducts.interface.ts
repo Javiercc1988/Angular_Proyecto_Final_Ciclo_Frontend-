@@ -12,3 +12,9 @@ export interface IProducts {
     _id?: string;
   };
 }
+
+export interface IProduct {
+  nombre: string;
+  categoria: string;
+  precio: number;
+}

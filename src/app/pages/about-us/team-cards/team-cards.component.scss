@@ -1,8 +1,8 @@
-.prueba{
+.worker-card-effect{
     overflow: hidden;
     cursor: pointer;
 }
-.prueba .card-hover{
+.worker-card-effect .card-hover{
     background-color: rgba(0, 0, 0, 0.568);
     display: block;
     margin: auto auto;
@@ -10,13 +10,19 @@
     width: 80%;
     height: 80%;
     top: 0;
-    bottom: -500px;
+    bottom: -900px;
     right: 0;
     left: 0;
     transition: .3s all ease-in-out;
 }
 
-.prueba:hover .card-hover {
+.worker-card-effect:hover .card-hover {
     bottom: 0;
 }
+
+@media (max-width: 991px) {
+    .mid-worker {
+      margin: 3rem 0;
+    }
+  }
 

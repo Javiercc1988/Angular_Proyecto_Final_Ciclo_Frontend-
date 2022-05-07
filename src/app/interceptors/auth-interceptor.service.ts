@@ -64,11 +64,11 @@ export class AuthInterceptor implements HttpInterceptor {
               this.reload = 0;
             }
 
-            // sessionStorage.removeItem('xToken');
-            // if (this.router.url == '/login' || this.router.url == '/') {
-            // } else {
-            //   this.router.navigateByUrl('/login');
-            // }
+            sessionStorage.removeItem('xToken');
+            if (this.router.url == '/login' || this.router.url == '/') {
+            } else {
+              this.router.navigateByUrl('/login');
+            }
           }
 
           return throwError(err);
