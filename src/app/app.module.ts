@@ -21,6 +21,18 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { TitleSectionComponent } from './shared/title-section/title-section.component';
 import { ContactFormComponent } from './shared/contact-form/contact-form.component';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProductsComponent } from './pages/products/products.component';
+import { AuthInterceptor } from './interceptors/auth-interceptor.service';
+
+const interceptors = [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
+  },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,13 +53,10 @@ import { ContactFormComponent } from './shared/contact-form/contact-form.compone
     ContactComponent,
     TitleSectionComponent,
     ContactFormComponent,
+    ProductsComponent,
   ],
-  imports: [
-    BrowserModule,
-    RouterModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule],
+  providers: [...interceptors],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,14 @@
+<h1>{{producto.nombre}}</h1>
+<h1>{{producto.categoria?.nombre}}</h1>
+<img [src]="producto.img" alt="">
+<div *ngFor="let product of listProducts">
+    <div class="container border">
+        <p>{{product.nombre}}</p>
+        <p>{{product.categoria?.nombre}}</p>
+        <p>{{product.nombre}}</p>
+        <p>{{product.precio}}</p>
+        <p>{{product.usuario?.nombre}}</p>
+        <img [src]="product.img" alt="">
+    </div>
+
+</div>
