@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit {
     private sessionStorage: SessionStorageService
   ) {
     this.xToken =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MWM1ODRmNDZmM2M4ZTBhZjIzYWY4Y2QiLCJpYXQiOjE2NTE5MzY4NTEsImV4cCI6MTY1MTk1MTI1MX0.OLU0igFzMi7NbOf8DOob-UTIhzc6J5q6uIihNMhxyUY';
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MWM1ODRmNDZmM2M4ZTBhZjIzYWY4Y2QiLCJpYXQiOjE2NTE5OTEyNzYsImV4cCI6MTY1MjAwNTY3Nn0.tw93cFOKqVW_v8etZpbU5byzHv679Ru4rAhqZB0AWmY';
   }
 
   ngOnInit(): void {
