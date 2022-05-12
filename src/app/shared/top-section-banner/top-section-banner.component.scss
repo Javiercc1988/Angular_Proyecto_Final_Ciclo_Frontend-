@@ -24,6 +24,14 @@
   background-image: url("../../../assets/top-section-banner/contact.jpg");
 }
 
+.products-image-background {
+  background-image: url("../../../assets/top-section-banner/products.jpg");
+}
+
+.admin-image-background {
+  background-image: url("../../../assets/top-section-banner/admin.jpg");
+}
+
 @media (max-width: 912px) {
   .container-image {
     padding-left: 2rem;

@@ -1,0 +1,175 @@
+.prueba {
+    top: 0;
+    transition: 0.3s all ease;
+  }
+  
+  .prueba:hover {
+    top: -18px;
+    -webkit-box-shadow: 0px 13px 16px -5px rgba(0, 0, 0, 0.53);
+    box-shadow: 0px 13px 16px -5px rgba(0, 0, 0, 0.53);
+  }
+  
+  
+  .worker-card-effect{
+      overflow: hidden;
+      cursor: pointer;
+  }
+  .worker-card-effect .card-hover{
+      background-color: rgba(0, 0, 0, 0.568);
+      display: flex;
+      margin: auto auto;
+      padding-top: 2rem;
+      color: white;
+      width: 100%;
+      height: 80%;
+      top: 0;
+      bottom: -1500px;
+      right: 0;
+      left: 0;
+      transition: .3s all ease-in-out;
+  }
+  .worker-card-effect:hover .card-hover {
+      bottom: -800px;
+  }
+  
+  .worker-card-effect:hover .marca-container {
+      display: none;
+  }
+  
+  .worker-card-effect i{
+      margin-right: 2rem;
+      font-size: 1.8rem;
+      transition: .3s all ease;
+  }
+  .worker-card-effect i:hover{
+      color: orange;
+      margin-right: 2rem;
+  }
+  
+  
+  .card-hover{
+      display: flex;
+      justify-content: space-around;
+  }
+  
+  .nombreProd{
+      color: #868686;
+  }
+  .marca-container{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 3rem;
+  }
+  
+  .marcaProd{
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 0;
+  }
+  
+  .categoriaProd{
+      font-size: .8rem;
+      font-weight: 100;
+  }
+  
+  .precioProd{
+      text-align: center;
+  }
+  
+  
+  @media (max-width: 1200px) {
+      .worker-card-effect .card-hover{
+  
+          bottom: -2500px;
+  
+      }
+      
+      .worker-card-effect:hover .card-hover {
+          bottom: -700px;
+      }
+  
+      .worker-card-effect i{
+          font-size: 1.5rem;
+      }
+      .worker-card-effect i:hover{
+          color: orange;
+      }
+    }
+  @media (max-width: 991px) {
+      .worker-card-effect .card-hover{
+  
+          bottom: -2500px;
+  
+      }
+      
+      .worker-card-effect:hover .card-hover {
+          bottom: -1200px;
+      }
+  
+      .worker-card-effect i{
+          font-size: 2rem;
+          margin-right: 2.5rem;
+      }
+      .worker-card-effect i:hover{
+          color: orange;
+      }
+  
+      .middle-card{
+          margin: 5rem 0;
+      }
+    }
+  @media (max-width: 767px) {
+      .worker-card-effect .card-hover{
+  
+          bottom: -2500px;
+  
+      }
+      
+      .worker-card-effect:hover .card-hover {
+          bottom: -950px;
+      }
+  
+    }
+  @media (max-width: 575px) {
+      .worker-card-effect .card-hover{
+  
+          bottom: -2500px;
+  
+      }
+      
+      .worker-card-effect:hover .card-hover {
+          bottom: -900px;
+      }
+  
+    }
+  @media (max-width: 500px) {
+      .worker-card-effect .card-hover{
+  
+          bottom: -2500px;
+  
+      }
+      
+      .worker-card-effect:hover .card-hover {
+          bottom: -700px;
+      }
+    }
+  @media (max-width: 390px) {
+      .worker-card-effect .card-hover{
+  
+          bottom: -2500px;
+  
+      }
+      
+      .worker-card-effect:hover .card-hover {
+          bottom: -600px;
+      }
+  
+      .worker-card-effect i{
+          font-size: 1.5rem;
+          margin-right: 2.5rem;
+      }
+      .worker-card-effect i:hover{
+          color: orange;
+      }
+    }

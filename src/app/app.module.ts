@@ -24,6 +24,8 @@ import { ContactFormComponent } from './shared/contact-form/contact-form.compone
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductsComponent } from './pages/products/products.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor.service';
+import { ProductCardsComponent } from './pages/products/product-cards/product-cards.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const interceptors = [
   {
@@ -54,6 +56,8 @@ const interceptors = [
     TitleSectionComponent,
     ContactFormComponent,
     ProductsComponent,
+    ProductCardsComponent,
+    AdminComponent,
   ],
   imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule],
   providers: [...interceptors],
