@@ -15,7 +15,7 @@
 
 <ng-container  *ngIf="productArray.length > 0">
   <div class="container pt-3 pb-3">
-    <button>Nuevo producto</button>
+    <button (click)="navigateToProduct()">Nuevo producto</button>
 
   </div>
   <div class="container" *ngFor="let data of productArray; index as i">

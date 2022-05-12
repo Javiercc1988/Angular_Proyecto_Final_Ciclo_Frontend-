@@ -26,6 +26,9 @@ import { ProductsComponent } from './pages/products/products.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor.service';
 import { ProductCardsComponent } from './pages/products/product-cards/product-cards.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { ProductFormComponent } from './pages/admin/product-form/product-form.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const interceptors = [
   {
@@ -58,8 +61,9 @@ const interceptors = [
     ProductsComponent,
     ProductCardsComponent,
     AdminComponent,
+    ProductFormComponent,
   ],
-  imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule,],
   providers: [...interceptors],
   bootstrap: [AppComponent],
 })

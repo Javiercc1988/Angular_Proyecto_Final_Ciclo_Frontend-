@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IAdminCards } from 'src/app/interfaces/IAdminCards';
 import { IProducts } from 'src/app/interfaces/IProducts.interface';
 import { ITopSectionBanner } from 'src/app/interfaces/ITopBanner.interface';
@@ -44,10 +45,12 @@ export class AdminComponent implements OnInit {
 
   constructor(
     private sessionStorage: SessionStorageService,
-    private productService: ProductosService
+    private productService: ProductosService,
+    private router: Router,
+
   ) {
     this.xToken =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MWM1ODRmNDZmM2M4ZTBhZjIzYWY4Y2QiLCJpYXQiOjE2NTIxOTk5NjEsImV4cCI6MTY1MjIxNDM2MX0.yE0m-S-iJ9F2uQM-Rinp0HGMj_gkpExbGvfBO0Jcd3c';
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MWM1ODRmNDZmM2M4ZTBhZjIzYWY4Y2QiLCJpYXQiOjE2NTIzMzc2MjcsImV4cCI6MTY1MjM1MjAyN30.zR9B1dAkYKjhzNevW1ejq0Xg7WIfYAhDjL8mQJ8K2Rg';
   }
 
   ngOnInit(): void {
@@ -70,6 +73,10 @@ export class AdminComponent implements OnInit {
     if (param == 'products') {
       this.getDataProduct();
     }
+  }
+
+  navigateToProduct(){
+    this.router.navigate(['/productForm'])
   }
 
   // onClickProduct(idProduct)(){

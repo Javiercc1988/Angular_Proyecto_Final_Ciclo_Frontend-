@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { ProductFormComponent } from './pages/admin/product-form/product-form.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { Page404Component } from './pages/page404/page404.component';
@@ -17,6 +18,7 @@ const routes: Routes = [];
       { path: 'contact', component: ContactComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'admin', component: AdminComponent },
+      { path: 'productForm', component: ProductFormComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', component: Page404Component },
     ]),

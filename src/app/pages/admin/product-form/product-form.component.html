@@ -1,0 +1,12 @@
+<app-header></app-header>
+<app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
+<app-title-section [titleSection]="titleProductForm"></app-title-section>
+
+<div class="container">
+    <form [formGroup]="productForm" class="d-flex flex-column">
+        <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre de producto">
+        <input type="text" id="categoria" formControlName="categoria" placeholder="Categoria de producto">
+        <input type="number" id="precio" formControlName="precio" placeholder="Precio de producto">
+    </form>
+    <button type="submit" (click)="saveProductData()" [disabled]="!productForm.valid">Enviar</button>
+</div>
