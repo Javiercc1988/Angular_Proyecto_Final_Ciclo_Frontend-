@@ -29,6 +29,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ProductFormComponent } from './pages/admin/product-form/product-form.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 const interceptors = [
   {
@@ -62,6 +63,7 @@ const interceptors = [
     ProductCardsComponent,
     AdminComponent,
     ProductFormComponent,
+    LoginPageComponent,
   ],
   imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule,],
   providers: [...interceptors],

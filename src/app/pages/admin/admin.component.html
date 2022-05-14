@@ -1,32 +1,34 @@
 <app-header></app-header>
 <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
 
-<div class="container-fluid pb-5 pt-5">
-  <div class="row justify-content-center border">
-    <ng-container *ngFor="let dato of datos">
-      <div class="col-lg-2 col-md-5 col-10 m-2 shadow border p-3 text-center target" (click)="onClickAdminCard(dato.seccion)">
-        <i class="{{ dato.icono }} icon-size mb-4 mt-2 black"></i>
-        <h3 class="rbt300">{{ dato.titulo }} </h3>
-        <p class="rbt300">{{ dato.cantidad }}</p>
-      </div>
-    </ng-container>
-  </div>
-</div>
-
-<ng-container *ngIf="seccion === 'products'">
-  <div class="container pt-3 pb-3">
-    <button (click)="navigateToProduct()">Nuevo producto</button>
-  </div>
-  <div class="container"  *ngIf="productArray.length > 0">
-    <div class="container d-flex cardProducts justify-content-between" *ngFor="let data of productArray; index as i">
-      <p>{{i}}</p>
-      <p>{{ data.nombre }}</p>
-      <div>
-        <i class="fa-solid fa-pen-to-square" (click)="editProduct(data)"></i>
-        <i class="fa-solid fa-trash-can" (click)="deleteProduct(data)"></i>
-      </div>
+<section class="menu-admin">
+  <div class="container-fluid pb-5 pt-5">
+    <div class="row justify-content-center">
+      <ng-container *ngFor="let data of sectionsData">
+        <div class="col-lg-2 col-md-5 col-10 m-2 shadow border p-3 text-center target" (click)="onClickProduct(data.seccion)">
+          <i class="{{ data.icono }} icon-size mb-4 mt-2 black"></i>
+          <h3 class="rbt300">{{ data.titulo }} </h3>
+          <p class="rbt300">{{ data.cantidad }}</p>
+        </div>
+      </ng-container>
     </div>
   </div>
-</ng-container>
+  
+  <ng-container *ngIf="seccion === 'products' ">
+    <div class="container d-flex justify-content-end pt-3 pb-3">
+      <button (click)="navigateTo()" class="btn boton shadow">Nuevo producto</button>
+    </div>
+    <div class="container" *ngIf="productArray.length > 0">
+      <div class="container d-flex cardProducts justify-content-between shadow" *ngFor="let data of productArray; index as i">
+          {{i}}
+          <h5 class="name">{{ data.nombre }}</h5>
+          <div>
+            <i class="fa-solid fa-pen-to-square editIcons" (click)="editProduct(data)"></i>
+            <i class="fa-solid fa-trash-can editIcons" (click)="deleteProduct(data)"></i>
+          </div>
+        </div>
+      </div>
+  </ng-container>
+</section>
 
 <app-footer></app-footer>

@@ -7,10 +7,10 @@ export const environment = {
   baseUrl: 'http://localhost:8080',
   apiProducts: 'api/productos',
   apiUsers: 'api/users',
-  apiAuth: "/api/auth",
-  apiBuscar: "/api/buscar",
-  apiCategorias: "/api/categorias",
-  apiUploads: "/api/uploads",
+  apiAuth: "api/auth",
+  apiBuscar: "api/buscar",
+  apiCategorias: "api/categorias",
+  apiUploads: "api/uploads",
 };
 
 /*

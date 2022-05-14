@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/interfaces/IProducts.interface';
@@ -12,6 +12,7 @@ import { ProductosService } from 'src/app/servicios/productos/productos.service'
   styleUrls: ['./product-form.component.scss'],
 })
 export class ProductFormComponent implements OnInit {
+
   topAdmin: ITopSectionBanner = {
     banner: 'admin-image-background',
     title: 'Administración',
@@ -26,25 +27,25 @@ export class ProductFormComponent implements OnInit {
   };
 
   productForm = new FormGroup({
-    nombre: new FormControl('',[Validators.required,Validators.minLength(5)]),
-    categoria: new FormControl('', [Validators.required]),
-    precio: new FormControl('', [Validators.required]),
+    nombre: new FormControl(this.productService.productData.nombre, [
+      Validators.required,
+    ]),
+    categoria: new FormControl(this.productService.productData.categoria?._id, [
+      Validators.required,
+    ]),
+    precio: new FormControl(this.productService.productData.precio, [
+      Validators.required,
+    ]),
   });
 
-  get nombre(){
-    return this.productForm.get('nombre')
-  }
-
-  openModal:boolean = false
+  openModal: boolean = false;
 
   constructor(
     private productService: ProductosService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   saveProductData() {
     if (this.productForm.valid) {

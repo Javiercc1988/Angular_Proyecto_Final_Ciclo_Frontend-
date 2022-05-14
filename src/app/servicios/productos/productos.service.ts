@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { first } from 'rxjs';
-import { IProduct } from 'src/app/interfaces/IProducts.interface';
+import { IProductFormData } from 'src/app/interfaces/Forms/IProductFormData.interface';
+import { IProduct, IProducts } from 'src/app/interfaces/IProducts.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,8 +13,20 @@ export class ProductosService {
   apiUrl: string = environment.apiProducts; //'api/productos'
   url: string;
 
+  productData:IProducts = {}
+
   constructor(private http: HttpClient) {
     this.url = `${this.baseUrl}/${this.apiUrl}`;
+  }
+
+  saveDataProduct(data: IProducts) {
+    this.productData = data
+
+    console.log("Desde el servicio: ", data)
+  }
+
+  resetDataProduct() {
+    this.productData = {}
   }
 
   getProductsData(limit?: number) {
@@ -27,9 +40,8 @@ export class ProductosService {
   createNewProduct(data: IProduct) {
     return this.http.post<IProduct>(`${this.url}`, data).pipe(first());
   }
-  
-  deleteProduct(idProduct:string){
-    return this.http.delete<IProduct>(`${this.url}/${idProduct}`).pipe(first());
 
+  deleteProduct(idProduct: string) {
+    return this.http.delete<IProduct>(`${this.url}/${idProduct}`).pipe(first());
   }
 }

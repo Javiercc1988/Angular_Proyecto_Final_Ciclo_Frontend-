@@ -1,9 +1,9 @@
-<section class="products-form uno">
 
-    <app-header></app-header>
-    <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
-    <app-title-section [titleSection]="titleProductForm"></app-title-section>
+<app-header></app-header>
+<app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
+<app-title-section [titleSection]="titleProductForm"></app-title-section>
     
+<section class="products-form uno">
     <div class="container">
         <form [formGroup]="productForm" class="d-flex flex-column">
             <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre de producto"/>
@@ -26,3 +26,5 @@
         <p>HOLA</p>
     </div>
 </section>
+
+<app-footer></app-footer>

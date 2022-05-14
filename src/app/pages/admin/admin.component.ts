@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { IProductFormData } from 'src/app/interfaces/Forms/IProductFormData.interface';
 import { IAdminCards } from 'src/app/interfaces/IAdminCards';
-import { IProducts } from 'src/app/interfaces/IProducts.interface';
+import { IProduct, IProducts } from 'src/app/interfaces/IProducts.interface';
+import { ITitleSection } from 'src/app/interfaces/ITitleSection.interface';
 import { ITopSectionBanner } from 'src/app/interfaces/ITopBanner.interface';
 import { ProductosService } from 'src/app/servicios/productos/productos.service';
-import { SessionStorageService } from 'src/app/servicios/session-storage/session-storage.service';
 
 @Component({
   selector: 'app-admin',
@@ -18,9 +19,7 @@ export class AdminComponent implements OnInit {
     subtitle: 'Home > Administración',
   };
 
-  xToken: string;
-
-  datos: IAdminCards[] = [
+  sectionsData: IAdminCards[] = [
     {
       icono: 'fa-solid fa-truck',
       titulo: 'Usuarios',
@@ -39,28 +38,26 @@ export class AdminComponent implements OnInit {
     },
   ];
 
+  titleProductForm: ITitleSection = {
+    title: 'Añadir nuevo producto',
+    style: 'container-fluid p-3 text-center',
+    styleTitle: 'rbt700 mt-3 mb-2',
+    styleSubtitle: 'rbt300 font3 mt-3 mb-5',
+  };
+
   productArray: IProducts[] = [];
   usersArray: any;
   categoryArray: any;
 
-  seccion: string = ''
+  seccion: string = '';
 
   constructor(
-    private sessionStorage: SessionStorageService,
     private productService: ProductosService,
-    private router: Router,
-
-  ) {
-    this.xToken =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MWM1ODRmNDZmM2M4ZTBhZjIzYWY4Y2QiLCJpYXQiOjE2NTI1MTE1NjYsImV4cCI6MzYwMDAwMDAwMDAxNjUyNTAwMDAwfQ.LwKCZlLT0kFJ1M2dcL4pJzBuWLH0vluQs2ao_8B-nrA';
-  }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.setToken('xToken', this.xToken);
-  }
-
-  setToken(key: string, token: string) {
-    this.sessionStorage.set(key, token);
+    this.getDataProduct();
   }
 
   getDataProduct() {
@@ -71,24 +68,26 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  onClickAdminCard(param:any) {
+  onClickProduct(param: any) {
     if (param == 'products') {
-      this.seccion = 'products'
-      this.getDataProduct();
+      this.seccion = 'products';
+      const data = this.getDataProduct();
     }
   }
 
-  editProduct(data:any){
-    console.log(data)
+  editProduct(data: IProducts) {
+    this.productService.saveDataProduct(data);
+    this.router.navigate(['/productForm']);
   }
 
-  deleteProduct(data:any){
-    this.productService.deleteProduct(data._id).subscribe(res => {
-      console.log(res)
-    })
+  deleteProduct(data: any) {
+    this.productService.deleteProduct(data._id).subscribe((res) => {
+      console.log(res);
+      this.getDataProduct();
+    });
   }
 
-  navigateToProduct(){
+  navigateTo(){
     this.router.navigate(['/productForm'])
   }
 }
