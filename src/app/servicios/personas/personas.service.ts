@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class PersonasService {
 
   baseUrl:string = environment.baseUrl
-  apiUrl:string = environment.apiPersons
+  apiUrl:string = environment.apiUsers
   url: string;
 
   constructor(private http: HttpClient) {

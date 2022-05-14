@@ -43,6 +43,8 @@ export class AdminComponent implements OnInit {
   usersArray: any;
   categoryArray: any;
 
+  seccion: string = ''
+
   constructor(
     private sessionStorage: SessionStorageService,
     private productService: ProductosService,
@@ -50,7 +52,7 @@ export class AdminComponent implements OnInit {
 
   ) {
     this.xToken =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MWM1ODRmNDZmM2M4ZTBhZjIzYWY4Y2QiLCJpYXQiOjE2NTIzMzc2MjcsImV4cCI6MTY1MjM1MjAyN30.zR9B1dAkYKjhzNevW1ejq0Xg7WIfYAhDjL8mQJ8K2Rg';
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MWM1ODRmNDZmM2M4ZTBhZjIzYWY4Y2QiLCJpYXQiOjE2NTI1MTE1NjYsImV4cCI6MzYwMDAwMDAwMDAxNjUyNTAwMDAwfQ.LwKCZlLT0kFJ1M2dcL4pJzBuWLH0vluQs2ao_8B-nrA';
   }
 
   ngOnInit(): void {
@@ -71,15 +73,22 @@ export class AdminComponent implements OnInit {
 
   onClickAdminCard(param:any) {
     if (param == 'products') {
+      this.seccion = 'products'
       this.getDataProduct();
     }
+  }
+
+  editProduct(data:any){
+    console.log(data)
+  }
+
+  deleteProduct(data:any){
+    this.productService.deleteProduct(data._id).subscribe(res => {
+      console.log(res)
+    })
   }
 
   navigateToProduct(){
     this.router.navigate(['/productForm'])
   }
-
-  // onClickProduct(idProduct)(){
-
-  // }
 }

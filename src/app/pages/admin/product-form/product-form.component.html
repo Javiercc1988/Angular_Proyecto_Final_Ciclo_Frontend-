@@ -1,12 +1,28 @@
-<app-header></app-header>
-<app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
-<app-title-section [titleSection]="titleProductForm"></app-title-section>
+<section class="products-form uno">
 
-<div class="container">
-    <form [formGroup]="productForm" class="d-flex flex-column">
-        <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre de producto">
-        <input type="text" id="categoria" formControlName="categoria" placeholder="Categoria de producto">
-        <input type="number" id="precio" formControlName="precio" placeholder="Precio de producto">
-    </form>
-    <button type="submit" (click)="saveProductData()" [disabled]="!productForm.valid">Enviar</button>
-</div>
+    <app-header></app-header>
+    <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
+    <app-title-section [titleSection]="titleProductForm"></app-title-section>
+    
+    <div class="container">
+        <form [formGroup]="productForm" class="d-flex flex-column">
+            <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre de producto"/>
+            <div *ngIf="productForm.controls['nombre'].invalid && (productForm.controls['nombre'].dirty || productForm.controls['nombre'].touched)" class="alert">
+                * El campo es obligatorio.
+            </div>               
+            <input type="text" id="categoria" formControlName="categoria" placeholder="Categoria de producto">
+            <div *ngIf="productForm.controls['categoria'].invalid && (productForm.controls['categoria'].dirty || productForm.controls['categoria'].touched)" class="alert">
+                * El campo es obligatorio.
+            </div>               
+            <input type="number" id="precio" formControlName="precio" placeholder="Precio de producto">
+            <div *ngIf="productForm.controls['precio'].invalid && (productForm.controls['precio'].dirty || productForm.controls['precio'].touched)" class="alert">
+                * El campo es obligatorio.
+            </div>               
+        </form>
+        <button [disabled]="!productForm.valid" type="submit" (click)="saveProductData()" [disabled]="!productForm.valid">Enviar</button>
+    </div>
+
+    <div *ngIf="openModal" class="container otro">
+        <p>HOLA</p>
+    </div>
+</section>

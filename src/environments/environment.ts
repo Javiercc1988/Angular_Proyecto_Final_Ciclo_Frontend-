@@ -6,7 +6,11 @@ export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080',
   apiProducts: 'api/productos',
-  apiPersons: 'api/users',
+  apiUsers: 'api/users',
+  apiAuth: "/api/auth",
+  apiBuscar: "/api/buscar",
+  apiCategorias: "/api/categorias",
+  apiUploads: "/api/uploads",
 };
 
 /*
