@@ -1,9 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IProduct } from 'src/app/interfaces/IProducts.interface';
 import { ITitleSection } from 'src/app/interfaces/ITitleSection.interface';
 import { ITopSectionBanner } from 'src/app/interfaces/ITopBanner.interface';
+import { ContactComponent } from 'src/app/pages/contact/contact.component';
 import { ProductosService } from 'src/app/servicios/productos/productos.service';
 
 @Component({
@@ -40,12 +42,15 @@ export class ProductFormComponent implements OnInit {
 
   openModal: boolean = false;
 
+  modalOptions = {}
+
   constructor(
     private productService: ProductosService,
-    private router: Router
+    private router: Router,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   saveProductData() {
     if (this.productForm.valid) {
