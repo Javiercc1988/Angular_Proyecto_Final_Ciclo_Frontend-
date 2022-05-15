@@ -5,7 +5,7 @@
   <div class="container-fluid pb-5 pt-5">
     <div class="row justify-content-center">
       <ng-container *ngFor="let data of sectionsData">
-        <div class="col-lg-2 col-md-5 col-10 m-2 shadow border p-3 text-center target" (click)="onClickProduct(data.seccion)">
+        <div class="col-lg-2 col-md-5 col-10 m-2 shadow border p-3 text-center" (click)="onClickProduct(data.seccion)">
           <i class="{{ data.icono }} icon-size mb-4 mt-2 black"></i>
           <h3 class="rbt300">{{ data.titulo }} </h3>
           <p class="rbt300">{{ data.cantidad }}</p>
@@ -15,19 +15,15 @@
   </div>
   
   <ng-container *ngIf="seccion === 'products' ">
-    <div class="container d-flex justify-content-end pt-3 pb-3">
-      <button (click)="navigateTo()" class="btn boton shadow">Nuevo producto</button>
-    </div>
-    <div class="container" *ngIf="productArray.length > 0">
-      <div class="container d-flex cardProducts justify-content-between shadow" *ngFor="let data of productArray; index as i">
-          {{i}}
-          <h5 class="name">{{ data.nombre }}</h5>
-          <div>
-            <i class="fa-solid fa-pen-to-square editIcons" (click)="editProduct(data)"></i>
-            <i class="fa-solid fa-trash-can editIcons" (click)="deleteProduct(data)"></i>
-          </div>
-        </div>
-      </div>
+    <app-product-menu></app-product-menu>
+  </ng-container>
+
+  <ng-container *ngIf="seccion === 'users' ">
+    <app-users-menu></app-users-menu>
+  </ng-container>
+  
+  <ng-container *ngIf="seccion === 'categorys' ">
+    <app-category-menu></app-category-menu>
   </ng-container>
 </section>
 

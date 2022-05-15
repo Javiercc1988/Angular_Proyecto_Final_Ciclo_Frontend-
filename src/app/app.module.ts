@@ -26,10 +26,13 @@ import { ProductsComponent } from './pages/products/products.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor.service';
 import { ProductCardsComponent } from './pages/products/product-cards/product-cards.component';
 import { AdminComponent } from './pages/admin/admin.component';
-import { ProductFormComponent } from './pages/admin/product-form/product-form.component';
+import { ProductFormComponent } from './pages/admin/product-menu/product-form/product-form.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { ProductMenuComponent } from './pages/admin/product-menu/product-menu.component';
+import { UsersMenuComponent } from './pages/admin/users-menu/users-menu.component';
+import { CategoryMenuComponent } from './pages/admin/category-menu/category-menu.component';
 
 const interceptors = [
   {
@@ -64,6 +67,9 @@ const interceptors = [
     AdminComponent,
     ProductFormComponent,
     LoginPageComponent,
+    ProductMenuComponent,
+    UsersMenuComponent,
+    CategoryMenuComponent,
   ],
   imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule,],
   providers: [...interceptors],

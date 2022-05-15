@@ -38,10 +38,10 @@ export class ProductosService {
   }
 
   createNewProduct(data: IProduct) {
-    return this.http.post<IProduct>(`${this.url}`, data).pipe(first());
+    return this.http.post<IProduct>(`${this.url}`, data);
   }
 
   deleteProduct(idProduct: string) {
-    return this.http.delete<IProduct>(`${this.url}/${idProduct}`).pipe(first());
+    return this.http.delete<IProduct>(`${this.url}/${idProduct}`);
   }
 }

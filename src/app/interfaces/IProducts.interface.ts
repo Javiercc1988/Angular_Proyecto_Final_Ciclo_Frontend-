@@ -11,6 +11,7 @@ export interface IProducts {
     nombre?: string;
     _id?: string;
   };
+  _id?: string;
 }
 
 export interface IProduct {
