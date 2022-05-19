@@ -1,11 +1,10 @@
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { IProduct } from 'src/app/interfaces/IProducts.interface';
+import { IProduct, IProducts } from 'src/app/interfaces/IProducts.interface';
 import { ITitleSection } from 'src/app/interfaces/ITitleSection.interface';
 import { ITopSectionBanner } from 'src/app/interfaces/ITopBanner.interface';
-import { ContactComponent } from 'src/app/pages/contact/contact.component';
+import { ImagesService } from 'src/app/servicios/images/images.service';
 import { ProductosService } from 'src/app/servicios/productos/productos.service';
 
 @Component({
@@ -14,7 +13,6 @@ import { ProductosService } from 'src/app/servicios/productos/productos.service'
   styleUrls: ['./product-form.component.scss'],
 })
 export class ProductFormComponent implements OnInit {
-
   topAdmin: ITopSectionBanner = {
     banner: 'admin-image-background',
     title: 'Administración',
@@ -41,29 +39,24 @@ export class ProductFormComponent implements OnInit {
   });
 
   openModal: boolean = false;
-
-  modalOptions = {}
+  modalOptions = {};
 
   constructor(
     private productService: ProductosService,
     private router: Router,
+    private imageService: ImagesService
   ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   saveProductData() {
     if (this.productForm.valid) {
-      const product: IProduct = this.productForm.value;
-      this.productService.createNewProduct(product).subscribe(
-        (resp) => {
-          console.log('La respuesta: ', resp);
-          this.router.navigate(['/admin']);
-        },
-        (err) => {
-          console.log('Error al crear el producto en la bbdd ', err);
-        }
-      );
+      const product: IProducts = this.productForm.value;
+
+      this.productService.createNewProduct(product).subscribe((resp) => {
+        console.log('La respuesta: ', resp);
+        this.router.navigate(['/admin']);
+      });
     }
   }
 }

@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
   baseUrl: string = environment.baseUrl; //'http://localhost:8080'
-  apiUrl: string = environment.apiAuth; //'api/productos'
+  apiUrl: string = environment.apiAuth; //'api/auth'
   url: string;
 
   constructor(private http: HttpClient) {

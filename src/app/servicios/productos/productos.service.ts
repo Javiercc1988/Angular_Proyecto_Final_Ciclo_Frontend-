@@ -37,7 +37,7 @@ export class ProductosService {
     return this.http.get<any>(`${this.url}/${idProduct}`);
   }
 
-  createNewProduct(data: IProduct) {
+  createNewProduct(data: IProducts) {
     return this.http.post<IProduct>(`${this.url}`, data);
   }
 

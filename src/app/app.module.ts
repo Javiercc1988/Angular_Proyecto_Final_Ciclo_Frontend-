@@ -34,6 +34,8 @@ import { ProductMenuComponent } from './pages/admin/product-menu/product-menu.co
 import { UsersMenuComponent } from './pages/admin/users-menu/users-menu.component';
 import { CategoryMenuComponent } from './pages/admin/category-menu/category-menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginFormComponent } from './pages/login-page/login-form/login-form.component';
+import { RegisterFormComponent } from './pages/login-page/register-form/register-form.component';
 
 const interceptors = [
   {
@@ -71,6 +73,8 @@ const interceptors = [
     ProductMenuComponent,
     UsersMenuComponent,
     CategoryMenuComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
   ],
   imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule,],
   providers: [...interceptors],

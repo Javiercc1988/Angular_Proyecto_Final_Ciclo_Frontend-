@@ -35,7 +35,7 @@ export class ProductCardsComponent implements OnInit {
     });
   }
 
-  createProduct(product: IProduct) {
+  createProduct(product: IProducts) {
     console.log('metiendo producto nuevo');
     this.productService.createNewProduct(product).subscribe((res) => {
       console.log('la respuesta', res);

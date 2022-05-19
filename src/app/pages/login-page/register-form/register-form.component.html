@@ -1,0 +1,14 @@
+<h1>Register PAGE</h1>
+
+<hr>
+<h1>Formulario de regístro</h1>
+<form [formGroup]="createNewUser" class="d-flex flex-column form">
+    <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre"/>
+    <input type="text" id="apellidos" formControlName="apellidos" placeholder="Apellidos"/>
+    <input type="text" id="dni" formControlName="dni" placeholder="Dni"/>
+    <input type="text" id="correo" formControlName="correo" placeholder="Correo electrónico"/>
+    <input type="text" id="password" formControlName="password" placeholder="Password"/>
+    <div class="d-flex justify-content-end">
+        <button (click)="createUser()" class="btn button"type="submit">Crear</button>
+    </div>          
+</form>

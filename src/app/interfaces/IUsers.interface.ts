@@ -6,4 +6,7 @@ export interface IUsers {
   nombre?: string;
   rol?: string;
   uid?: string;
+  apellidos?: string;
+  dni?: string;
+  password?: string
 }

@@ -1,4 +1,3 @@
-
 <app-header></app-header>
 <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
 <app-title-section [titleSection]="titleProductForm"></app-title-section>
@@ -19,7 +18,7 @@
                 * El campo es obligatorio.
             </div>     
             <div class="d-flex justify-content-end">
-                <button class="btn button" [disabled]="!productForm.valid" type="submit" (click)="saveProductData()" [disabled]="!productForm.valid">Crear</button>
+                <button class="btn button"type="submit" (click)="saveProductData()" [disabled]="!productForm.valid">Crear</button>
             </div>          
         </form>
     </div>

@@ -18,4 +18,5 @@ export interface IProduct {
   nombre: string;
   categoria: string;
   precio: number;
+  img: string;
 }

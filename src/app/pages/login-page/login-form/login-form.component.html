@@ -1,0 +1,16 @@
+<h1>LOGIN PAGE</h1>
+
+<hr>
+<h1>formulario de login</h1>
+
+<section class="products-form d-flex justify-content-center uno">
+    <div class="container">
+        <form [formGroup]="loginUser" class="d-flex flex-column form">
+            <input type="text" id="correo" formControlName="correo" placeholder="Correo"/>
+            <input type="text" id="password" formControlName="password" placeholder="Contraseña"/>
+            <div class="d-flex justify-content-end">
+                <button (click)="getLoginToken()" class="btn button"type="submit">Crear</button>
+            </div>          
+        </form>
+    </div>
+</section>
