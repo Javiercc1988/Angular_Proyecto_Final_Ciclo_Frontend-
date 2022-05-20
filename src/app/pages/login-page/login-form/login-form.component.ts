@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IUserLogin } from 'src/app/interfaces/IUserLogin.interface';
 import { AuthService } from 'src/app/servicios/auth/auth.service';
 import { SessionStorageService } from 'src/app/servicios/session-storage/session-storage.service';
@@ -18,7 +19,8 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private sessionStorage: SessionStorageService
+    private sessionStorage: SessionStorageService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {}
@@ -29,14 +31,26 @@ export class LoginFormComponent implements OnInit {
       password: this.loginUser.value.password,
     };
 
-    this.authService.getLogin(logginData).subscribe((res) => {
-      console.log('res', res);
-      this.xToken = res.token;
-      this.setToken('xToken', this.xToken);
+    this.authService.getLogin(logginData).subscribe((user) => {
+      console.log('user', user);
+      if(user.token){
+        this.xToken = user.token;
+        this.setToken('xToken', this.xToken);
+      }
+      this.navigateToHome()
     });
   }
 
   setToken(key: string, token: string) {
     this.sessionStorage.set(key, token);
+  }
+
+  navigateToHome(){
+    this.router.navigate(['/home'])
+  }
+
+  logout(){
+    this.sessionStorage.deleteItemInStorage('xToken')
+    this.navigateToHome()
   }
 }

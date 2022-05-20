@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionStorageService } from 'src/app/servicios/session-storage/session-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+
+
+  token:boolean = false
+
+  constructor(
+    private sessionStorage: SessionStorageService
+  ) { }
 
   ngOnInit(): void {
+    if(this.sessionStorage.get('xToken')){
+      this.token = true
+    }
   }
 
 }

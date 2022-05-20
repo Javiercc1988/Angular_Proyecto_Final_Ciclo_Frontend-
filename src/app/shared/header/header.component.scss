@@ -1,9 +1,8 @@
 @import '../../../styles/colors';
 
 
-.active{
-    background-color: $orange!important;
-    color: white!important;
+.active-link{
+    border-bottom: 3px solid $orange;
 }
 
 header{

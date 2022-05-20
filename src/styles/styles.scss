@@ -27,5 +27,12 @@ html, body{
     text-decoration: none;
     color: #fff;
 }
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+
+.errorForm{
+    color: $orange;
+    font-size: 12px
+  }
+  
+  
+  /* Importing Bootstrap SCSS file. */
+  @import '~bootstrap/scss/bootstrap';

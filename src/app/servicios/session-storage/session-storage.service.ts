@@ -27,12 +27,12 @@ export class SessionStorageService {
     }
   }
 
-  // delete(key: string) {
-  //   try {
-  //     sessionStorage.removeItem(key) || ;
-  //   } catch (e) {
-  //     console.error('Error al deleting session variable', e);
-  //     return null;
-  //   }
-  // }
+  deleteItemInStorage(key: string): any {
+    try {
+      sessionStorage.removeItem(key)
+    } catch (e) {
+      console.error('Error al deleting session variable', e);
+      return null;
+    }
+  }
 }

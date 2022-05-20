@@ -21,13 +21,26 @@
       </div>
 
       <div class="col-md-6 col-sm-12">
-        <div class="d-flex flex-column form">
-          <input type="text" placeholder="Nombre completo" />
-          <input type="text" placeholder="Email" />
-          <input type="text" placeholder="Teléfono" />
-          <input type="text" placeholder="Texto" />
-          <button type="button" class="btn boton mt-5">Enviar</button>
-        </div>
+        <form [formGroup]="clientContact" class="d-flex flex-column form">
+
+          <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre">
+          <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="errorForm">
+            * El campo es obligatorio
+          </div>
+          <input type="text" id="email" formControlName="email" placeholder="Email">
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="errorForm">
+            * El campo es obligatorio
+          </div>
+          <input type="text" id="telefono" formControlName="telefono" placeholder="Teléfono">
+          <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="errorForm">
+            * El campo es obligatorio
+          </div>
+          <input type="text" id="texto" formControlName="texto" placeholder="Comentario">
+          <div *ngIf="texto.invalid && (texto.dirty || texto.touched)" class="errorForm">
+            * El campo es obligatorio
+          </div>
+          <button [disabled]="clientContact.invalid" type="button" class="btn boton mt-5">Enviar</button>
+        </form>
       </div>
     </div>
   </div>
