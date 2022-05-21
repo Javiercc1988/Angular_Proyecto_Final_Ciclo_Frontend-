@@ -8,5 +8,6 @@ export interface IUsers {
   uid?: string;
   apellidos?: string;
   dni?: string;
-  password?: string
+  password?: string;
+  telefono?: string;
 }

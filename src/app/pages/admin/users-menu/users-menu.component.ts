@@ -27,15 +27,16 @@ export class UsersMenuComponent implements OnInit {
     });
   }
 
-  getProductById(id: string) {
+  getUserFromId(id: string) {
     this.usersService.getUsersFromId(id).subscribe((product) => {
       this.user = product;
       console.log('Producto por id: ', product);
     });
   }
 
-  editUser(data: IUsers) {
-    this.router.navigate(['/productForm']);
+  editUser(user: IUsers) {
+    this.usersService.saveDataUser(user)
+    this.router.navigate(['admin/editUser']);
   }
 
   createUser(user: IUsers) {
@@ -50,5 +51,10 @@ export class UsersMenuComponent implements OnInit {
       console.log(res);
       this.getDataUsers();
     });
+  }
+
+  navigateToNewUser(){
+    this.router.navigate(['admin/userForm']);
+
   }
 }

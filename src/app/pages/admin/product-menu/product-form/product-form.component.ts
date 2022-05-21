@@ -41,13 +41,21 @@ export class ProductFormComponent implements OnInit {
   openModal: boolean = false;
   modalOptions = {};
 
+  data:any;
+  
   constructor(
     private productService: ProductosService,
     private router: Router,
     private imageService: ImagesService
-  ) {}
+    ) {
+      
+    }
+    
+    ngOnInit(): void {
+    this.data = this.productService.productData
+    console.log("LA DATAAAAAAAAAAAA", this.data)
 
-  ngOnInit(): void {}
+  }
 
   saveProductData() {
     if (this.productForm.valid) {

@@ -4,17 +4,27 @@ import { ICategorys } from 'src/app/interfaces/ICategorys.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoryService {
+  categoryData: ICategorys = {};
 
-  baseUrl:string = environment.baseUrl
-  apiUrl:string = environment.apiCategorias
+  baseUrl: string = environment.baseUrl;
+  apiUrl: string = environment.apiCategorias;
   url: string;
 
   constructor(private http: HttpClient) {
     this.url = `${this.baseUrl}/${this.apiUrl}`;
+  }
 
+  saveDataCategory(data: ICategorys) {
+    this.categoryData = data;
+
+    console.log('Desde el servicio: ', data);
+  }
+
+  resetDataCategory() {
+    this.categoryData = {};
   }
 
   getCategoryData(limit?: number) {
@@ -27,6 +37,10 @@ export class CategoryService {
 
   createNewCategory(data: ICategorys) {
     return this.http.post<ICategorys>(`${this.url}`, data);
+  }
+
+  editCategory(data: ICategorys) {
+    return this.http.put<ICategorys>(`${this.url}/${data._id}`, data);
   }
 
   deleteCategory(idUser: string) {

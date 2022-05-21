@@ -13,6 +13,9 @@ export class ProductMenuComponent implements OnInit {
 
   salir:boolean = false;
 
+
+  data: any;
+
   constructor(
     private productService: ProductosService,
     private router: Router
@@ -32,7 +35,7 @@ export class ProductMenuComponent implements OnInit {
 
   editProduct(data: IProducts) {
     this.productService.saveDataProduct(data);
-    this.router.navigate(['/productForm']);
+    this.router.navigate(['/admin/productForm']);
   }
 
   deleteProduct(data: any) {
@@ -43,6 +46,7 @@ export class ProductMenuComponent implements OnInit {
   }
 
   navigateTo() {
-    this.router.navigate(['/productForm']);
+    this.productService.productData = {}
+    this.router.navigate(['/admin/productForm']);
   }
 }

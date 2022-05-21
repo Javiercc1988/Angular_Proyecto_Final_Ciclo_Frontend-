@@ -4,17 +4,27 @@ import { IUsers } from 'src/app/interfaces/IUsers.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
+  userData: IUsers = {};
 
-  baseUrl:string = environment.baseUrl
-  apiUrl:string = environment.apiUsers
+  baseUrl: string = environment.baseUrl;
+  apiUrl: string = environment.apiUsers;
   url: string;
 
   constructor(private http: HttpClient) {
     this.url = `${this.baseUrl}/${this.apiUrl}`;
+  }
 
+  saveDataUser(data: IUsers) {
+    this.userData = data;
+
+    console.log('Desde el servicio: ', data);
+  }
+
+  resetDataUser() {
+    this.userData = {};
   }
 
   getUsersData(limit?: number) {
@@ -25,12 +35,15 @@ export class UsersService {
     return this.http.get<any>(`${this.url}/${idUser}`);
   }
 
-  createNewUser(data: IUsers) {
-    return this.http.post<IUsers>(`${this.url}`, data);
+  createNewUser(user: IUsers) {
+    return this.http.post<IUsers>(`${this.url}`, user);
+  }
+
+  editUser(user: IUsers) {
+    return this.http.put<IUsers>(`${this.url}/${user.uid}`, user);
   }
 
   deleteUser(idUser: string) {
     return this.http.delete<IUsers>(`${this.url}/${idUser}`);
   }
-  
 }

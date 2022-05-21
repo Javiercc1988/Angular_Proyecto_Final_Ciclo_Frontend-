@@ -1,0 +1,16 @@
+@import "../styles/colors";
+
+.button {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  background-color: $orange;
+  color: #fff;
+  max-width: 250px;
+  min-width: 250px;
+}
+
+.button:hover {
+  background-color: transparent;
+  color: $orange;
+  border: 1px solid $orange;
+}

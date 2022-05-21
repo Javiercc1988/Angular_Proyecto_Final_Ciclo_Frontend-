@@ -37,14 +37,8 @@ export class CategoryMenuComponent implements OnInit {
   }
 
   editCategory(category: ICategorys) {
-    this.router.navigate(['/productForm']);
-  }
-
-  createCategory(category: ICategorys) {
-    console.log('metiendo categoria nueva');
-    this.categoryService.createNewCategory(category).subscribe((res) => {
-      console.log('la respuesta', res);
-    });
+    this.categoryService.saveDataCategory(category)
+    this.router.navigate(['admin/editCategory']);
   }
 
   deleteCategory(user: any) {
@@ -52,5 +46,9 @@ export class CategoryMenuComponent implements OnInit {
       console.log(res);
       this.getCategoryData();
     });
+  }
+
+  navigateToNewCategory() {
+    this.router.navigate(['admin/categoryForm']);
   }
 }
