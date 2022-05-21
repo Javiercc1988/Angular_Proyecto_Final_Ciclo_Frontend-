@@ -33,16 +33,23 @@ export class ProductMenuComponent implements OnInit {
     });
   }
 
-  editProduct(data: IProducts) {
-    this.productService.saveDataProduct(data);
+  editProduct(product: IProducts) {
+    this.productService.saveDataProduct(product);
+    this.productService.readOnly = false;
     this.router.navigate(['/admin/productForm']);
   }
 
-  deleteProduct(data: any) {
-    this.productService.deleteProduct(data._id).subscribe((res) => {
-      console.log(res);
+  deleteProduct(product: any) {
+    this.productService.deleteProduct(product._id).subscribe((product) => {
+      console.log(product);
       this.getDataProduct();
     });
+  }
+
+  infoProductReadOnly(product:IProducts){
+    this.productService.saveDataProduct(product);
+    this.productService.readOnly = true;
+    this.router.navigate(['admin/productForm']);
   }
 
   navigateTo() {

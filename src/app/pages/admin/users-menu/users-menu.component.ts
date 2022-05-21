@@ -9,9 +9,7 @@ import { UsersService } from 'src/app/servicios/users/users.service';
   styleUrls: ['./users-menu.component.scss'],
 })
 export class UsersMenuComponent implements OnInit {
-
   usersArray: IUsers[] = [];
-
   user: IUsers = {};
 
   constructor(private usersService: UsersService, private router: Router) {}
@@ -35,7 +33,8 @@ export class UsersMenuComponent implements OnInit {
   }
 
   editUser(user: IUsers) {
-    this.usersService.saveDataUser(user)
+    this.usersService.saveDataUser(user);
+    this.usersService.readOnly = false;
     this.router.navigate(['admin/userForm']);
   }
 
@@ -53,8 +52,14 @@ export class UsersMenuComponent implements OnInit {
     });
   }
 
-  navigateToNewUser(){
+  infoUserReadOnly(user: IUsers) {
+    this.usersService.saveDataUser(user);
+    this.usersService.readOnly = true;
     this.router.navigate(['admin/userForm']);
+  }
 
+  navigateToNewUser() {
+    this.usersService.userData = {};
+    this.router.navigate(['admin/userForm']);
   }
 }

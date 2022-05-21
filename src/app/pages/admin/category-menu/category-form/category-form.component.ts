@@ -37,6 +37,8 @@ export class CategoryFormComponent implements OnInit {
 
   categoryData: ICategorys = {}
 
+  isReadOnly: boolean = this.categoryService.readOnly
+
   constructor(
     private router: Router,
     private categoryService: CategoryService
@@ -56,6 +58,7 @@ export class CategoryFormComponent implements OnInit {
 
   createCategory(category: ICategorys) {
     console.log('metiendo categoria nueva');
+    this.categoryService.readOnly = false
     this.categoryService.createNewCategory(category).subscribe((res) => {
       console.log('la respuesta', res);
     });

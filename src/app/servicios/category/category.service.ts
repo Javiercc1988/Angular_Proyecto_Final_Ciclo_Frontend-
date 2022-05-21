@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CategoryService {
   categoryData: ICategorys = {};
+  readOnly: boolean = false;
 
   baseUrl: string = environment.baseUrl;
   apiUrl: string = environment.apiCategorias;

@@ -1,18 +1,29 @@
 <app-header></app-header>
 <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
 
-<div *ngIf="!userData.nombre" class="titleAdminForm container-fluid p-3 text-center">
+<div
+  *ngIf="!userData.nombre && isReadOnly"
+  class="titleAdminForm container-fluid p-3 text-center"
+>
   <h1 class="rbt700 mt-3 mb-2">Nuevo <span>Usuario</span></h1>
 </div>
 
-<div *ngIf="userData.nombre" class="titleAdminForm container-fluid p-3 text-center">
+<div
+  *ngIf="userData.nombre && isReadOnly"
+  class="titleAdminForm container-fluid p-3 text-center"
+>
   <h1 class="rbt700 mt-3 mb-2">Editar <span>Usuario</span></h1>
+</div>
+
+<div *ngIf="!isReadOnly" class="titleAdminForm container-fluid p-3 text-center">
+  <h1 class="rbt700 mt-3 mb-2">Detalles de <span>usuario</span></h1>
 </div>
 
 <section class="section-form d-flex justify-content-center uno">
   <div class="container">
     <form [formGroup]="userForm" class="d-flex flex-column form">
       <input
+        [readonly]="isReadOnly"
         type="text"
         id="nombre"
         formControlName="nombre"
@@ -25,6 +36,7 @@
         * El campo es obligatorio.
       </div>
       <input
+        [readonly]="isReadOnly"
         type="text"
         id="apellidos"
         formControlName="apellidos"
@@ -37,6 +49,7 @@
         * El campo es obligatorio.
       </div>
       <input
+        [readonly]="isReadOnly"
         type="text"
         id="dni"
         formControlName="dni"
@@ -46,6 +59,7 @@
         * El campo es obligatorio.
       </div>
       <input
+        [readonly]="isReadOnly"
         type="text"
         id="telefono"
         formControlName="telefono"
@@ -58,6 +72,7 @@
         * El campo es obligatorio.
       </div>
       <input
+        [readonly]="isReadOnly"
         type="text"
         id="correo"
         formControlName="correo"
@@ -70,6 +85,8 @@
         * El campo es obligatorio.
       </div>
       <input
+      *ngIf="!isReadOnly"
+        [readonly]="isReadOnly"
         type="text"
         id="password"
         formControlName="password"
@@ -82,23 +99,33 @@
         * El campo es obligatorio.
       </div>
       <input
-      type="text"
-      id="rol"
-      formControlName="rol"
-      placeholder="Rol de usuario"
-    />
-    <div
-      *ngIf="rol.invalid && (rol.dirty || rol.touched)"
-      class="errorForm"
-    >
-      * El campo es obligatorio.
-    </div>
+        [readonly]="isReadOnly"
+        type="text"
+        id="rol"
+        formControlName="rol"
+        placeholder="Rol de usuario"
+      />
+      <div *ngIf="rol.invalid && (rol.dirty || rol.touched)" class="errorForm">
+        * El campo es obligatorio.
+      </div>
 
       <div class="d-flex justify-content-end">
-        <button  *ngIf="!userData.nombre"  class="btn button" type="submit" (click)="saveUserData()" [disabled]="!userForm.valid">
+        <button
+          *ngIf="!userData.nombre && !isReadOnly"
+          class="btn button"
+          type="submit"
+          (click)="saveUserData()"
+          [disabled]="!userForm.valid"
+        >
           Crear
         </button>
-        <button *ngIf="userData.nombre" class="btn button" type="submit" (click)="clickEditUser()" [disabled]="!userForm.valid">
+        <button
+          *ngIf="userData.nombre && !isReadOnly"
+          class="btn button"
+          type="submit"
+          (click)="clickEditUser()"
+          [disabled]="!userForm.valid"
+        >
           Editar
         </button>
       </div>

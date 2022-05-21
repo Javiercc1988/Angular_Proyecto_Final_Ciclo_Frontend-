@@ -26,12 +26,22 @@ export class UserFormComponent implements OnInit {
   };
 
   userForm: any = new FormGroup({
-    nombre: new FormControl(this.userService.userData.nombre, [Validators.required]),
-    apellidos: new FormControl(this.userService.userData.apellidos, [Validators.required]),
+    nombre: new FormControl(this.userService.userData.nombre, [
+      Validators.required,
+    ]),
+    apellidos: new FormControl(this.userService.userData.apellidos, [
+      Validators.required,
+    ]),
     dni: new FormControl(this.userService.userData.dni, [Validators.required]),
-    telefono: new FormControl(this.userService.userData.telefono, [Validators.required]),
-    correo: new FormControl(this.userService.userData.correo, [Validators.required]),
-    password: new FormControl(this.userService.userData.password, [Validators.required]),
+    telefono: new FormControl(this.userService.userData.telefono, [
+      Validators.required,
+    ]),
+    correo: new FormControl(this.userService.userData.correo, [
+      Validators.required,
+    ]),
+    password: new FormControl(this.userService.userData.password, [
+      Validators.required,
+    ]),
     rol: new FormControl(this.userService.userData.rol, [Validators.required]),
   });
 
@@ -57,14 +67,13 @@ export class UserFormComponent implements OnInit {
     return this.userForm.get('rol');
   }
 
-
   userData: any;
+  isReadOnly: boolean = this.userService.readOnly;
 
   constructor(private userService: UsersService, private router: Router) {}
 
   ngOnInit(): void {
     this.userData = this.userService.userData;
-
   }
 
   clickEditUser() {
@@ -72,6 +81,7 @@ export class UserFormComponent implements OnInit {
       let User = this.userForm.value;
       User.uid = this.userService.userData.uid;
       this.editUser(User);
+      this.navigateToAdmin()
     }
   }
 
@@ -88,8 +98,12 @@ export class UserFormComponent implements OnInit {
 
       this.userService.createNewUser(user).subscribe((resp) => {
         console.log('La respuesta: ', resp);
-        this.router.navigate(['/admin']);
+        this.navigateToAdmin();
       });
     }
+  }
+
+  navigateToAdmin() {
+    this.router.navigate(['admin']);
   }
 }

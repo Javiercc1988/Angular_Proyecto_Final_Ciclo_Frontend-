@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UsersService {
   userData: IUsers = {};
+  readOnly: boolean = false
 
   baseUrl: string = environment.baseUrl;
   apiUrl: string = environment.apiUsers;
@@ -19,12 +20,7 @@ export class UsersService {
 
   saveDataUser(data: IUsers) {
     this.userData = data;
-
     console.log('Desde el servicio: ', data);
-  }
-
-  resetDataUser() {
-    this.userData = {};
   }
 
   getUsersData(limit?: number) {

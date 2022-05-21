@@ -4,12 +4,13 @@
     <button (click)="navigateTo()" class="btn button shadow">Nuevo producto</button>
   </div>
   <div class="container" *ngIf="productArray.length > 0">
-    <div class="container d-flex cardProducts justify-content-between shadow" *ngFor="let data of productArray; index as i">
+    <div class="container d-flex cardProducts justify-content-between shadow" *ngFor="let product of productArray; index as i">
         {{i+1}}
-        <h6 class="name">{{ data.nombre }}</h6>
+        <h6 class="name">{{ product.nombre }}</h6>
         <div>
-          <i class="fa-solid fa-pen-to-square editIcons" (click)="editProduct(data)"></i>
-          <i class="fa-solid fa-trash-can editIcons" (click)="deleteProduct(data)"></i>
+          <i class="fa-solid fa-circle-info editIcons"(click)="infoProductReadOnly(product)"></i>
+          <i class="fa-solid fa-pen-to-square editIcons" (click)="editProduct(product)"></i>
+          <i class="fa-solid fa-trash-can editIcons" (click)="deleteProduct(product)"></i>
         </div>
     </div>
 </div>

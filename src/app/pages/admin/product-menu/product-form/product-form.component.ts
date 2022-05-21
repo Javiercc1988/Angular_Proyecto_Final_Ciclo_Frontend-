@@ -46,15 +46,15 @@ export class ProductFormComponent implements OnInit {
 
   productData: any;
 
+  isReadOnly: boolean = this.productService.readOnly;
+
   constructor(
     private productService: ProductosService,
-    private router: Router,
-    private imageService: ImagesService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.productData = this.productService.productData;
-    console.log('LA DATAAAAAAAAAAAA', this.productData);
   }
 
   clickEditProduct() {
@@ -63,7 +63,7 @@ export class ProductFormComponent implements OnInit {
       product._id = this.productData._id;
       this.editProduct(product);
     }
-    this.navigateToAdmin()
+    this.navigateToAdmin();
   }
 
   editProduct(product: IProducts) {
@@ -79,8 +79,8 @@ export class ProductFormComponent implements OnInit {
 
       this.productService.createNewProduct(product).subscribe((resp) => {
         console.log('La respuesta: ', resp);
-        this.router.navigate(['/admin']);
       });
+      this.navigateToAdmin()
     }
   }
 

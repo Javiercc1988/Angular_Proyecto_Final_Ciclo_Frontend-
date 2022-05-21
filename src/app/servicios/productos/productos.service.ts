@@ -14,6 +14,7 @@ export class ProductosService {
   url: string;
 
   productData:IProducts = {}
+  readOnly: boolean = false
 
   constructor(private http: HttpClient) {
     this.url = `${this.baseUrl}/${this.apiUrl}`;

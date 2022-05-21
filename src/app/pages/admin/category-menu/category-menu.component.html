@@ -1,14 +1,29 @@
 <div class="container d-flex justify-content-between pt-3 pb-3">
-    <h3>Categorias</h3>
-    <button (click)="navigateToNewCategory()" class="btn button shadow">Nueva categoria</button>
-  </div>
-  <div class="container">
-    <div class="container d-flex cardProducts justify-content-between shadow" *ngFor="let category of categorysArray; index as i">
-        {{i+1}}
-        <h6 class="name">{{ category.nombre }}</h6>
-        <div>
-          <i class="fa-solid fa-pen-to-square editIcons" (click)="editCategory(category)"></i>
-          <i class="fa-solid fa-trash-can editIcons" (click)="deleteCategory(category)"></i>
-        </div>
+  <h3>Categorias</h3>
+  <button (click)="navigateToNewCategory()" class="btn button shadow">
+    Nueva categoria
+  </button>
+</div>
+<div class="container">
+  <div
+    class="container d-flex cardProducts justify-content-between shadow"
+    *ngFor="let category of categorysArray; index as i"
+  >
+    {{ i + 1 }}
+    <h6 class="name">{{ category.nombre }}</h6>
+    <div>
+      <i
+        class="fa-solid fa-circle-info editIcons"
+        (click)="infoCategoryReadOnly(category)"
+      ></i>
+      <i
+        class="fa-solid fa-pen-to-square editIcons"
+        (click)="editCategory(category)"
+      ></i>
+      <i
+        class="fa-solid fa-trash-can editIcons"
+        (click)="deleteCategory(category)"
+      ></i>
     </div>
+  </div>
 </div>

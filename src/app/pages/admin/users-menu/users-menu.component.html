@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-between pt-3 pb-3">
+<div class="container d-flex justify-content-between align-middle pt-3 pb-3">
     <h3>Usuarios</h3>
     <button  class="btn button shadow" (click)="navigateToNewUser()">Nuevo Usuario</button>
   </div>
@@ -8,6 +8,7 @@
         <h6 class="name">{{ user.nombre }}</h6>
         <h6 class="name">{{ user.correo }}</h6>
         <div>
+          <i class="fa-solid fa-circle-info editIcons"(click)="infoUserReadOnly(user)"></i>
           <i class="fa-solid fa-pen-to-square editIcons" (click)="editUser(user)"></i>
           <i class="fa-solid fa-trash-can editIcons" (click)="deleteUser(user)"></i>
         </div>
