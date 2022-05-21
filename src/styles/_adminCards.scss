@@ -1,0 +1,41 @@
+.titleResponsive {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexResponsive {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardProducts {
+  align-items: center;
+  border: 1px solid #a1a1a175;
+  border-radius: 10px;
+  font-weight: 900;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+@media (max-width: 600px) {
+    .titleResponsive {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .flexResponsive {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+
+        & h6{
+            margin: .5rem 0;
+        }
+
+        & i{
+            margin-top: 1rem;
+        }
+      }
+}

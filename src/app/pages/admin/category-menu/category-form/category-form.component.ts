@@ -25,7 +25,7 @@ export class CategoryFormComponent implements OnInit {
     styleSubtitle: 'rbt300 font3 mt-3 mb-5',
   };
 
-  categoryForm = new FormGroup({
+  categoryForm:any = new FormGroup({
     nombre: new FormControl(this.categoryService.categoryData.nombre, [Validators.required]),
   });
 

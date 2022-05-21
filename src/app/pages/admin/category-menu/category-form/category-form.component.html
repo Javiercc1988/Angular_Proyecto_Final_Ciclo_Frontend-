@@ -2,20 +2,20 @@
 <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
 
 <div
-  *ngIf="!categoryData.nombre && isReadOnly"
+  *ngIf="!categoryData.nombre && !isReadOnly"
   class="titleAdminForm container-fluid p-3 text-center"
 >
   <h1 class="rbt700 mt-3 mb-2">Nueva <span>Categoría</span></h1>
 </div>
 
 <div
-  *ngIf="categoryData.nombre && isReadOnly"
+  *ngIf="categoryData.nombre && !isReadOnly"
   class="titleAdminForm container-fluid p-3 text-center"
 >
   <h1 class="rbt700 mt-3 mb-2">Editar <span>Categoría</span></h1>
 </div>
 
-<div *ngIf="!isReadOnly" class="titleAdminForm container-fluid p-3 text-center">
+<div *ngIf="categoryData.nombre && isReadOnly" class="titleAdminForm container-fluid p-3 text-center">
   <h1 class="rbt700 mt-3 mb-2">Detalles de <span>categoría</span></h1>
 </div>
 
@@ -31,11 +31,7 @@
       />
 
       <div
-        *ngIf="
-          categoryForm.controls['nombre'].invalid &&
-          (categoryForm.controls['nombre'].dirty ||
-            categoryForm.controls['nombre'].touched)
-        "
+        *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
         class="errorForm"
       >
         * El campo es obligatorio.

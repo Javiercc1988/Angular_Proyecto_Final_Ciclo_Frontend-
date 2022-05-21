@@ -5,6 +5,7 @@ import { ITitleSection } from 'src/app/interfaces/ITitleSection.interface';
 import { ITopSectionBanner } from 'src/app/interfaces/ITopBanner.interface';
 import { IUsers } from 'src/app/interfaces/IUsers.interface';
 import { UsersService } from 'src/app/servicios/users/users.service';
+import { CustomValidators } from 'src/app/validators/custom-validators';
 
 @Component({
   selector: 'app-user-form',
@@ -32,15 +33,26 @@ export class UserFormComponent implements OnInit {
     apellidos: new FormControl(this.userService.userData.apellidos, [
       Validators.required,
     ]),
-    dni: new FormControl(this.userService.userData.dni, [Validators.required]),
+    dni: new FormControl(this.userService.userData.dni, [
+      Validators.required,
+      Validators.maxLength(9),
+      Validators.pattern(
+        '((^)(((\\d{8})([-]?)([A-Za-z]))|([X-Zx-z]{1}[-]?\\d{7}[-]?[A-Za-z]{1})))+$'
+      ),
+      CustomValidators.checkDNI(),
+    ]),
     telefono: new FormControl(this.userService.userData.telefono, [
       Validators.required,
+      Validators.maxLength(9),
+      Validators.pattern('^[0-9]{9}$'),
     ]),
     correo: new FormControl(this.userService.userData.correo, [
       Validators.required,
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
     ]),
     password: new FormControl(this.userService.userData.password, [
       Validators.required,
+      Validators.minLength(6),
     ]),
     rol: new FormControl(this.userService.userData.rol, [Validators.required]),
   });
@@ -81,7 +93,7 @@ export class UserFormComponent implements OnInit {
       let User = this.userForm.value;
       User.uid = this.userService.userData.uid;
       this.editUser(User);
-      this.navigateToAdmin()
+      this.navigateToAdmin();
     }
   }
 

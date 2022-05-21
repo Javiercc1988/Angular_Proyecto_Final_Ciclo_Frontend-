@@ -57,9 +57,10 @@ export class UsersMenuComponent implements OnInit {
     this.usersService.readOnly = true;
     this.router.navigate(['admin/userForm']);
   }
-
+  
   navigateToNewUser() {
     this.usersService.userData = {};
+    this.usersService.readOnly = false;
     this.router.navigate(['admin/userForm']);
   }
 }

@@ -1,10 +1,9 @@
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IProduct, IProducts } from 'src/app/interfaces/IProducts.interface';
+import { IProducts } from 'src/app/interfaces/IProducts.interface';
 import { ITitleSection } from 'src/app/interfaces/ITitleSection.interface';
 import { ITopSectionBanner } from 'src/app/interfaces/ITopBanner.interface';
-import { ImagesService } from 'src/app/servicios/images/images.service';
 import { ProductosService } from 'src/app/servicios/productos/productos.service';
 
 @Component({
@@ -26,7 +25,7 @@ export class ProductFormComponent implements OnInit {
     styleSubtitle: 'rbt300 font3 mt-3 mb-5',
   };
 
-  productForm = new FormGroup({
+  productForm:any = new FormGroup({
     nombre: new FormControl(this.productService.productData.nombre, [
       Validators.required,
     ]),
@@ -40,6 +39,19 @@ export class ProductFormComponent implements OnInit {
       Validators.required,
     ]),
   });
+
+  get nombre() {
+    return this.productForm.get('nombre');
+  }
+  get categoria() {
+    return this.productForm.get('categoria');
+  }
+  get precio() {
+    return this.productForm.get('precio');
+  }
+  get descripcion() {
+    return this.productForm.get('descripcion');
+  }
 
   openModal: boolean = false;
   modalOptions = {};

@@ -38,7 +38,7 @@ export class CategoryMenuComponent implements OnInit {
 
   editCategory(category: ICategorys) {
     this.categoryService.saveDataCategory(category);
-    this.categoryService.readOnly = false
+    this.categoryService.readOnly = false;
     this.router.navigate(['admin/categoryForm']);
   }
 
@@ -51,12 +51,13 @@ export class CategoryMenuComponent implements OnInit {
 
   infoCategoryReadOnly(category: ICategorys) {
     this.categoryService.saveDataCategory(category);
-    this.categoryService.readOnly = true
+    this.categoryService.readOnly = true;
     this.router.navigate(['admin/categoryForm']);
   }
 
   navigateToNewCategory() {
     this.categoryService.categoryData = {};
+    this.categoryService.readOnly = false;
     this.router.navigate(['admin/categoryForm']);
   }
 }

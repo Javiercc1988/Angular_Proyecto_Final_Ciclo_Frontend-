@@ -2,7 +2,7 @@
 <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
 
 <div
-  *ngIf="!productData.nombre && isReadOnly"
+  *ngIf="!productData.nombre && !isReadOnly"
   class="titleAdminForm container-fluid p-3 text-center"
 >
   <h1 class="rbt700 mt-3 mb-2">Nuevo <span>Producto</span></h1>
@@ -15,11 +15,14 @@
   <h1 class="rbt700 mt-3 mb-2">Editar <span>Producto</span></h1>
 </div>
 
-<div *ngIf="isReadOnly" class="titleAdminForm container-fluid p-3 text-center">
+<div
+  *ngIf="productData.nombre && isReadOnly"
+  class="titleAdminForm container-fluid p-3 text-center"
+>
   <h1 class="rbt700 mt-3 mb-2">Detalles de <span>producto</span></h1>
 </div>
 
-<section class="section-form d-flex justify-content-center uno">
+<section class="section-form d-flex justify-content-center">
   <div class="container">
     <form [formGroup]="productForm" class="d-flex flex-column form">
       <input
@@ -30,12 +33,8 @@
         placeholder="Nombre de producto"
       />
       <div
-        *ngIf="
-          productForm.controls['nombre'].invalid &&
-          (productForm.controls['nombre'].dirty ||
-            productForm.controls['nombre'].touched)
-        "
-        class="alert"
+        *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+        class="errorForm"
       >
         * El campo es obligatorio.
       </div>
@@ -47,12 +46,8 @@
         placeholder="Categoria de producto"
       />
       <div
-        *ngIf="
-          productForm.controls['categoria'].invalid &&
-          (productForm.controls['categoria'].dirty ||
-            productForm.controls['categoria'].touched)
-        "
-        class="alert"
+        *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)"
+        class="errorForm"
       >
         * El campo es obligatorio.
       </div>
@@ -64,12 +59,8 @@
         placeholder="Precio de producto"
       />
       <div
-        *ngIf="
-          productForm.controls['precio'].invalid &&
-          (productForm.controls['precio'].dirty ||
-            productForm.controls['precio'].touched)
-        "
-        class="alert"
+        *ngIf="precio.invalid && (precio.dirty || precio.touched)"
+        class="errorForm"
       >
         * El campo es obligatorio.
       </div>
@@ -82,11 +73,9 @@
       />
       <div
         *ngIf="
-          productForm.controls['descripcion'].invalid &&
-          (productForm.controls['descripcion'].dirty ||
-            productForm.controls['descripcion'].touched)
+          descripcion.invalid && (descripcion.dirty || descripcion.touched)
         "
-        class="alert"
+        class="errorForm"
       >
         * El campo es obligatorio.
       </div>

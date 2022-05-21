@@ -51,9 +51,10 @@ export class ProductMenuComponent implements OnInit {
     this.productService.readOnly = true;
     this.router.navigate(['admin/productForm']);
   }
-
+  
   navigateTo() {
     this.productService.productData = {}
+    this.productService.readOnly = false;
     this.router.navigate(['/admin/productForm']);
   }
 }

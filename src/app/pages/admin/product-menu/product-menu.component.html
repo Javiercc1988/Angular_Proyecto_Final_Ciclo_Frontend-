@@ -1,10 +1,9 @@
-<div class="container d-flex justify-content-between pt-3 pb-3">
+<div class="container titleResponsive pt-3 pb-3">
     <h3>Productos</h3>
-
     <button (click)="navigateTo()" class="btn button shadow">Nuevo producto</button>
   </div>
   <div class="container" *ngIf="productArray.length > 0">
-    <div class="container d-flex cardProducts justify-content-between shadow" *ngFor="let product of productArray; index as i">
+    <div class="container flexResponsive cardProducts shadow" *ngFor="let product of productArray; index as i">
         {{i+1}}
         <h6 class="name">{{ product.nombre }}</h6>
         <div>

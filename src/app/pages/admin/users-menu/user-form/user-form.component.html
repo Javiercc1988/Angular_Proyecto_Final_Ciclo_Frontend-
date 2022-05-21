@@ -2,20 +2,20 @@
 <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
 
 <div
-  *ngIf="!userData.nombre && isReadOnly"
+  *ngIf="!userData.nombre && !isReadOnly"
   class="titleAdminForm container-fluid p-3 text-center"
 >
   <h1 class="rbt700 mt-3 mb-2">Nuevo <span>Usuario</span></h1>
 </div>
 
 <div
-  *ngIf="userData.nombre && isReadOnly"
+  *ngIf="userData.nombre && !isReadOnly"
   class="titleAdminForm container-fluid p-3 text-center"
 >
   <h1 class="rbt700 mt-3 mb-2">Editar <span>Usuario</span></h1>
 </div>
 
-<div *ngIf="!isReadOnly" class="titleAdminForm container-fluid p-3 text-center">
+<div *ngIf="userData.nombre && isReadOnly" class="titleAdminForm container-fluid p-3 text-center">
   <h1 class="rbt700 mt-3 mb-2">Detalles de <span>usuario</span></h1>
 </div>
 
@@ -52,15 +52,17 @@
         [readonly]="isReadOnly"
         type="text"
         id="dni"
+        maxlength="9"
         formControlName="dni"
         placeholder="DNI"
       />
       <div *ngIf="dni.invalid && (dni.dirty || dni.touched)" class="errorForm">
-        * El campo es obligatorio.
+        * El campo DNI es incorrecto.
       </div>
       <input
         [readonly]="isReadOnly"
         type="text"
+        maxlength="9"
         id="telefono"
         formControlName="telefono"
         placeholder="Teléfono"
@@ -69,7 +71,7 @@
         *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)"
         class="errorForm"
       >
-        * El campo es obligatorio.
+        * El campo teléfono es incorrecto.
       </div>
       <input
         [readonly]="isReadOnly"
@@ -82,12 +84,13 @@
         *ngIf="correo.invalid && (correo.dirty || correo.touched)"
         class="errorForm"
       >
-        * El campo es obligatorio.
+        * El formato de correo electrónico es incorrecto.
       </div>
       <input
-      *ngIf="!isReadOnly"
+        *ngIf="!isReadOnly"
         [readonly]="isReadOnly"
         type="text"
+        minlength="6"
         id="password"
         formControlName="password"
         placeholder="Password"
@@ -96,7 +99,7 @@
         *ngIf="password.invalid && (password.dirty || password.touched)"
         class="errorForm"
       >
-        * El campo es obligatorio.
+        * La contraseña es incorrecta, mínimo 6 carácteres.
       </div>
       <input
         [readonly]="isReadOnly"

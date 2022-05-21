@@ -1,9 +1,9 @@
-<div class="container d-flex justify-content-between align-middle pt-3 pb-3">
+<div class="container titleResponsive pt-3 pb-3">
     <h3>Usuarios</h3>
-    <button  class="btn button shadow" (click)="navigateToNewUser()">Nuevo Usuario</button>
+    <button  class="btn button shadow" (click)="navigateToNewUser()">Nuevo usuario</button>
   </div>
   <div class="container">
-    <div class="container d-flex cardProducts justify-content-between shadow" *ngFor="let user of usersArray; index as i">
+    <div class="container flexResponsive cardProducts shadow" *ngFor="let user of usersArray; index as i">
         {{i+1}}
         <h6 class="name">{{ user.nombre }}</h6>
         <h6 class="name">{{ user.correo }}</h6>
