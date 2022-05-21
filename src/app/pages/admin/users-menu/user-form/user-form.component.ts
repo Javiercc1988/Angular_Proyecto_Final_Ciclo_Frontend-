@@ -26,12 +26,13 @@ export class UserFormComponent implements OnInit {
   };
 
   userForm: any = new FormGroup({
-    nombre: new FormControl('', [Validators.required]),
-    apellidos: new FormControl('', [Validators.required]),
-    dni: new FormControl('', [Validators.required]),
-    telefono: new FormControl('', [Validators.required]),
-    correo: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
+    nombre: new FormControl(this.userService.userData.nombre, [Validators.required]),
+    apellidos: new FormControl(this.userService.userData.apellidos, [Validators.required]),
+    dni: new FormControl(this.userService.userData.dni, [Validators.required]),
+    telefono: new FormControl(this.userService.userData.telefono, [Validators.required]),
+    correo: new FormControl(this.userService.userData.correo, [Validators.required]),
+    password: new FormControl(this.userService.userData.password, [Validators.required]),
+    rol: new FormControl(this.userService.userData.rol, [Validators.required]),
   });
 
   get nombre() {
@@ -52,10 +53,34 @@ export class UserFormComponent implements OnInit {
   get password() {
     return this.userForm.get('password');
   }
+  get rol() {
+    return this.userForm.get('rol');
+  }
+
+
+  userData: any;
 
   constructor(private userService: UsersService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userData = this.userService.userData;
+
+  }
+
+  clickEditUser() {
+    if (this.userForm.valid) {
+      let User = this.userForm.value;
+      User.uid = this.userService.userData.uid;
+      this.editUser(User);
+    }
+  }
+
+  editUser(user: IUsers) {
+    console.log('metiendo al usuario editado', user);
+    this.userService.editUser(user).subscribe((res) => {
+      console.log('la respuesta', res);
+    });
+  }
 
   saveUserData() {
     if (this.userForm.valid) {

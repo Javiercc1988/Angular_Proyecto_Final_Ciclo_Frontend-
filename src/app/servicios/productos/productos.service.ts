@@ -37,8 +37,12 @@ export class ProductosService {
     return this.http.get<any>(`${this.url}/${idProduct}`);
   }
 
-  createNewProduct(data: IProducts) {
-    return this.http.post<IProduct>(`${this.url}`, data);
+  createNewProduct(product: IProducts) {
+    return this.http.post<IProduct>(`${this.url}`, product);
+  }
+
+  editProduct(product: IProducts) {
+    return this.http.put<IProduct>(`${this.url}/${product._id}`, product);
   }
 
   deleteProduct(idProduct: string) {

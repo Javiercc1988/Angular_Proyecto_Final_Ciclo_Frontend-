@@ -26,7 +26,7 @@ export class CategoryFormComponent implements OnInit {
   };
 
   categoryForm = new FormGroup({
-    nombre: new FormControl('', [Validators.required]),
+    nombre: new FormControl(this.categoryService.categoryData.nombre, [Validators.required]),
   });
 
   get nombre() {
@@ -42,7 +42,9 @@ export class CategoryFormComponent implements OnInit {
     private categoryService: CategoryService
   ) {}
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {  
+    this.categoryData = this.categoryService.categoryData
+  }
 
   clickCreateCategory() {
     if (this.categoryForm.valid) {
@@ -55,6 +57,22 @@ export class CategoryFormComponent implements OnInit {
   createCategory(category: ICategorys) {
     console.log('metiendo categoria nueva');
     this.categoryService.createNewCategory(category).subscribe((res) => {
+      console.log('la respuesta', res);
+    });
+  }
+
+  clickEditCategory() {
+    if (this.categoryForm.valid) {
+      let category = this.categoryService.categoryData
+      category.nombre = this.categoryForm.value.nombre
+      this.editCategory(category)
+      this.navigateToAdmin()
+    }
+  }
+
+  editCategory(category: ICategorys) {
+    console.log('metiendo categoria nueva');
+    this.categoryService.editCategory(category).subscribe((res) => {
       console.log('la respuesta', res);
     });
   }

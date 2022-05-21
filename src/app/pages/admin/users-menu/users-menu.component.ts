@@ -36,7 +36,7 @@ export class UsersMenuComponent implements OnInit {
 
   editUser(user: IUsers) {
     this.usersService.saveDataUser(user)
-    this.router.navigate(['admin/editUser']);
+    this.router.navigate(['admin/userForm']);
   }
 
   createUser(user: IUsers) {

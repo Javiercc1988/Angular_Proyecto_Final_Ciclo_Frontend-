@@ -7,6 +7,7 @@ export interface IProducts {
   img?: string;
   nombre?: string;
   precio?: number;
+  descripcion?: string;
   usuario?: {
     nombre?: string;
     _id?: string;

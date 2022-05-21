@@ -38,7 +38,7 @@ export class CategoryMenuComponent implements OnInit {
 
   editCategory(category: ICategorys) {
     this.categoryService.saveDataCategory(category)
-    this.router.navigate(['admin/editCategory']);
+    this.router.navigate(['admin/categoryForm']);
   }
 
   deleteCategory(user: any) {

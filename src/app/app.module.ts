@@ -37,8 +37,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginFormComponent } from './pages/login-page/login-form/login-form.component';
 import { RegisterFormComponent } from './pages/login-page/register-form/register-form.component';
 import { CategoryFormComponent } from './pages/admin/category-menu/category-form/category-form.component';
-import { EditCategoryFormComponent } from './pages/admin/category-menu/edit-category-form/edit-category-form.component';
-import { EditUserFormComponent } from './pages/admin/users-menu/edit-user-form/edit-user-form.component';
 import { UserFormComponent } from './pages/admin/users-menu/user-form/user-form.component';
 
 const interceptors = [
@@ -80,8 +78,6 @@ const interceptors = [
     LoginFormComponent,
     RegisterFormComponent,
     CategoryFormComponent,
-    EditCategoryFormComponent,
-    EditUserFormComponent,
     UserFormComponent,
   ],
   imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule,],

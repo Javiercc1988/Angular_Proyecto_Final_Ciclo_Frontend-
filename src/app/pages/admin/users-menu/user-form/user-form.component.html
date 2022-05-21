@@ -1,6 +1,13 @@
 <app-header></app-header>
 <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
-<app-title-section [titleSection]="titleProductForm"></app-title-section>
+
+<div *ngIf="!userData.nombre" class="titleAdminForm container-fluid p-3 text-center">
+  <h1 class="rbt700 mt-3 mb-2">Nuevo <span>Usuario</span></h1>
+</div>
+
+<div *ngIf="userData.nombre" class="titleAdminForm container-fluid p-3 text-center">
+  <h1 class="rbt700 mt-3 mb-2">Editar <span>Usuario</span></h1>
+</div>
 
 <section class="section-form d-flex justify-content-center uno">
   <div class="container">
@@ -74,10 +81,25 @@
       >
         * El campo es obligatorio.
       </div>
+      <input
+      type="text"
+      id="rol"
+      formControlName="rol"
+      placeholder="Rol de usuario"
+    />
+    <div
+      *ngIf="rol.invalid && (rol.dirty || rol.touched)"
+      class="errorForm"
+    >
+      * El campo es obligatorio.
+    </div>
 
       <div class="d-flex justify-content-end">
-        <button class="btn button" type="submit" (click)="saveUserData()" [disabled]="!userForm.valid">
+        <button  *ngIf="!userData.nombre"  class="btn button" type="submit" (click)="saveUserData()" [disabled]="!userForm.valid">
           Crear
+        </button>
+        <button *ngIf="userData.nombre" class="btn button" type="submit" (click)="clickEditUser()" [disabled]="!userForm.valid">
+          Editar
         </button>
       </div>
     </form>

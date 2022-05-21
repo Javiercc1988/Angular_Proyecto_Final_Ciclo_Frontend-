@@ -1,7 +1,15 @@
 <app-header></app-header>
 <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
-<app-title-section [titleSection]="titleProductForm"></app-title-section>
-    
+
+<div *ngIf="!productData.nombre" class="titleAdminForm container-fluid p-3 text-center">
+    <h1 class="rbt700 mt-3 mb-2">Nuevo <span>Producto</span></h1>
+</div>
+
+<div *ngIf="productData.nombre" class="titleAdminForm container-fluid p-3 text-center">
+    <h1 class="rbt700 mt-3 mb-2">Editar <span>Producto</span></h1>
+</div>
+
+
 <section class="section-form d-flex justify-content-center uno">
     <div class="container">
         <form [formGroup]="productForm" class="d-flex flex-column form">
@@ -16,12 +24,19 @@
             <input type="number" id="precio" formControlName="precio" placeholder="Precio de producto">
             <div *ngIf="productForm.controls['precio'].invalid && (productForm.controls['precio'].dirty || productForm.controls['precio'].touched)" class="alert">
                 * El campo es obligatorio.
-            </div>     
-            <div *ngIf="!data.nombre"  class="d-flex justify-content-end">
+            </div> 
+            <input type="text" id="descripcion" formControlName="descripcion" placeholder="descripcion de producto">
+            <div *ngIf="productForm.controls['descripcion'].invalid && (productForm.controls['descripcion'].dirty || productForm.controls['descripcion'].touched)" class="alert">
+                * El campo es obligatorio.
+            </div> 
+
+
+            
+            <div *ngIf="!productData.nombre"  class="d-flex justify-content-end">
                 <button class="btn button"type="submit" (click)="saveProductData()" [disabled]="!productForm.valid">Crear</button>
             </div>          
-            <div *ngIf="data.nombre" class="d-flex justify-content-end">
-                <button class="btn button"type="submit" (click)="saveProductData()" [disabled]="!productForm.valid">editar</button>
+            <div *ngIf="productData.nombre" class="d-flex justify-content-end">
+                <button class="btn button"type="submit" (click)="clickEditProduct()" [disabled]="!productForm.valid">Editar</button>
             </div>          
         </form>
     </div>

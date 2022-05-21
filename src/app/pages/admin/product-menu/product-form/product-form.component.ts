@@ -36,25 +36,41 @@ export class ProductFormComponent implements OnInit {
     precio: new FormControl(this.productService.productData.precio, [
       Validators.required,
     ]),
+    descripcion: new FormControl(this.productService.productData.descripcion, [
+      Validators.required,
+    ]),
   });
 
   openModal: boolean = false;
   modalOptions = {};
 
-  data:any;
-  
+  productData: any;
+
   constructor(
     private productService: ProductosService,
     private router: Router,
     private imageService: ImagesService
-    ) {
-      
-    }
-    
-    ngOnInit(): void {
-    this.data = this.productService.productData
-    console.log("LA DATAAAAAAAAAAAA", this.data)
+  ) {}
 
+  ngOnInit(): void {
+    this.productData = this.productService.productData;
+    console.log('LA DATAAAAAAAAAAAA', this.productData);
+  }
+
+  clickEditProduct() {
+    if (this.productForm.valid) {
+      let product = this.productForm.value;
+      product._id = this.productData._id;
+      this.editProduct(product);
+    }
+    this.navigateToAdmin()
+  }
+
+  editProduct(product: IProducts) {
+    console.log('metiendo al usuario editado', product);
+    this.productService.editProduct(product).subscribe((res) => {
+      console.log('la respuesta', res);
+    });
   }
 
   saveProductData() {
@@ -66,5 +82,9 @@ export class ProductFormComponent implements OnInit {
         this.router.navigate(['/admin']);
       });
     }
+  }
+
+  navigateToAdmin() {
+    this.router.navigate(['admin']);
   }
 }

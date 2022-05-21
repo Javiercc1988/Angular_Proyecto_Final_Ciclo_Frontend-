@@ -1,7 +1,15 @@
 <app-header></app-header>
 <app-top-section-banner [topBanner]="topAdmin"></app-top-section-banner>
-<app-title-section [titleSection]="titleProductForm"></app-title-section>
     
+<div *ngIf="!categoryData.nombre" class="titleAdminForm container-fluid p-3 text-center">
+    <h1 class="rbt700 mt-3 mb-2">Nueva <span>Categoría</span></h1>
+</div>
+
+<div *ngIf="categoryData.nombre" class="titleAdminForm container-fluid p-3 text-center">
+    <h1 class="rbt700 mt-3 mb-2">Editar <span>Categoría</span></h1>
+</div>
+
+
 <section class="section-form d-flex justify-content-center uno">
     <div class="container">
         <form [formGroup]="categoryForm" class="d-flex flex-column form">
@@ -9,8 +17,11 @@
             <div *ngIf="categoryForm.controls['nombre'].invalid && (categoryForm.controls['nombre'].dirty || categoryForm.controls['nombre'].touched)" class="errorForm">
                 * El campo es obligatorio.
             </div>     
-            <div class="d-flex justify-content-end">
+            <div *ngIf="!categoryData.nombre" class="d-flex justify-content-end">
                 <button class="btn button"type="submit" (click)="clickCreateCategory()" [disabled]="!categoryForm.valid">Crear</button>
+            </div>                      
+            <div *ngIf="categoryData.nombre" class="d-flex justify-content-end">
+                <button class="btn button"type="submit" (click)="clickEditCategory()" [disabled]="!categoryForm.valid">Editar</button>
             </div>                      
         </form>
     </div>
