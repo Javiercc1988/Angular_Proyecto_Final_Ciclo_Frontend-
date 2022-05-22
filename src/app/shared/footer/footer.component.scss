@@ -3,11 +3,20 @@
     padding: 100px 0 25px 0;
 }
 
-.footer-socials{
-
-}
-
 .footer-titles{
     text-transform: capitalize;
     color: #fff;
+}
+
+a{
+    font-weight: 500;
+    transition: .2s all ease-in-out;
+}
+
+a:hover{
+    color: #fd5f25;
+}
+
+li{
+    margin: .8rem 0;
 }
