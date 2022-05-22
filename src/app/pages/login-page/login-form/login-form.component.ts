@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUserLogin } from 'src/app/interfaces/IUserLogin.interface';
 import { AuthService } from 'src/app/servicios/auth/auth.service';
 import { SessionStorageService } from 'src/app/servicios/session-storage/session-storage.service';
+
 
 @Component({
   selector: 'app-login-form',
@@ -11,11 +12,15 @@ import { SessionStorageService } from 'src/app/servicios/session-storage/session
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
+
+  @Output() changeRegister = new EventEmitter<boolean>()
+
   xToken: string = '';
   loginUser = new FormGroup({
     correo: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
+
 
   constructor(
     private authService: AuthService,
@@ -52,5 +57,9 @@ export class LoginFormComponent implements OnInit {
   logout(){
     this.sessionStorage.deleteItemInStorage('xToken')
     this.navigateToHome()
+  }
+
+  register(emit:boolean){
+    this.changeRegister.emit(emit)
   }
 }

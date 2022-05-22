@@ -1,14 +1,42 @@
-<h1>Register PAGE</h1>
+<section>
+  <div class="container login">
+    <form [formGroup]="createNewUser" class="d-flex flex-column form">
+      <div class="d-flex justify-content-between w-100 pb-5">
+        <i (click)="navigateToHome()" class="fa-solid fa-circle-arrow-left backIcon"></i>
+        <p (click)="register(false)"class="registro">Iniciar sesión</p>
+    </div>
+      <h2>Regístrate</h2>
 
-<hr>
-<h1>Formulario de regístro</h1>
-<form [formGroup]="createNewUser" class="d-flex flex-column form">
-    <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre"/>
-    <input type="text" id="apellidos" formControlName="apellidos" placeholder="Apellidos"/>
-    <input type="text" id="dni" formControlName="dni" placeholder="Dni"/>
-    <input type="text" id="correo" formControlName="correo" placeholder="Correo electrónico"/>
-    <input type="text" id="password" formControlName="password" placeholder="Password"/>
-    <div class="d-flex justify-content-end">
-        <button (click)="createUser()" class="btn button"type="submit">Crear</button>
-    </div>          
-</form>
+      <input
+        type="text"
+        id="nombre"
+        formControlName="nombre"
+        placeholder="Nombre"
+      />
+      <input
+        type="text"
+        id="apellidos"
+        formControlName="apellidos"
+        placeholder="Apellidos"
+      />
+      <input type="text" id="dni" formControlName="dni" placeholder="Dni" />
+      <input
+        type="text"
+        id="correo"
+        formControlName="correo"
+        placeholder="Correo electrónico"
+      />
+      <input
+        type="text"
+        id="password"
+        formControlName="password"
+        placeholder="Password"
+      />
+      <div class="d-flex justify-content-end">
+        <button (click)="createUser()" class="btnlogin" type="submit">
+          Registrarse
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

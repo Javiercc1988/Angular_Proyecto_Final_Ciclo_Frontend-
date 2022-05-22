@@ -1,17 +1,31 @@
-<h1>LOGIN PAGE</h1>
-
-<hr>
-<h1>formulario de login</h1>
-
-<section class="products-form d-flex justify-content-center uno">
-    <div class="container">
-        <form [formGroup]="loginUser" class="d-flex flex-column form">
-            <input type="text" id="correo" formControlName="correo" placeholder="Correo"/>
-            <input type="text" id="password" formControlName="password" placeholder="Contraseña"/>
-            <div class="d-flex justify-content-end">
-                <button (click)="getLoginToken()" class="btn button"type="submit">Login</button>
-                <button (click)="logout()" class="btn button"type="submit">LOGOUT</button>
-            </div>          
-        </form>
-    </div>
+<section>
+  <div class="container login">
+      <form [formGroup]="loginUser" class="form">
+          <div class="d-flex justify-content-between w-100 pb-5">
+              <i (click)="navigateToHome()" class="fa-solid fa-circle-arrow-left backIcon"></i>
+              <p (click)="register(true)"class="registro">Registro</p>
+          </div>
+        <h2>Inicia sesión</h2>
+      <input
+        type="text"
+        id="correo"
+        formControlName="correo"
+        placeholder="Correo"
+      />
+      <input
+        type="text"
+        id="password"
+        formControlName="password"
+        placeholder="Contraseña"
+      />
+      <div class="d-flex justify-content-end">
+        <button (click)="getLoginToken()" class="btnlogin" type="submit">
+          Login
+        </button>
+        <!-- <button (click)="logout()" class="btn button" type="submit">
+          LOGOUT
+        </button> -->
+      </div>
+    </form>
+  </div>
 </section>
