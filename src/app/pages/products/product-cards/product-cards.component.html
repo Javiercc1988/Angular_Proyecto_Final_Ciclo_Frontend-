@@ -1,39 +1,25 @@
 <div class="container">
-  <div class="row justify-content-center mt-5 mb-5" *ngFor="let producto of listProducts">
-    <div class="col-lg-4 col-md-12 position-relative prueba worker-card-effect">
+  <div
+    class="row justify-content-center mt-5 mb-5">
+    <div *ngFor="let producto of listProducts" class="col-lg-4 col-md-12 position-relative positionCard productCard">
       <div class="container">
         <h3 class="nombreProd pt-3 pb-3 text-center">{{ producto.nombre }}</h3>
         <img class="img-fluid" [src]="producto.img" alt="" />
         <div class="marca-container">
-          <p class="marcaProd">Marca producto</p>
+          <p class="marcaProd">{{producto.marca}}</p>
           <p class="categoriaProd">{{ producto.categoria?.nombre }}</p>
         </div>
         <div class="card-hover position-absolute">
-          <div>
-            <i class="fa-solid fa-basket-shopping"></i>
-            <i class="fa-solid fa-heart"></i>
+          <div class="d-flex justify-content-between p-4">
+            <div>
+              <i class="fa-solid fa-basket-shopping"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h3 class="precioProd">{{ producto.precio }} €</h3>
           </div>
-          <h3 class="precioProd">{{ producto.precio }} €</h3>
+          <p class="text-center p-4">{{producto.descripcion}}</p>
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-12 position-relative prueba worker-card-effect">
-      <div class="container">
-        <h3 class="nombreProd pt-3 pb-3 text-center">{{ producto.nombre }}</h3>
-        <img class="img-fluid" [src]="producto.img" alt="" />
-        <div class="marca-container">
-          <p class="marcaProd">Marca producto</p>
-          <p class="categoriaProd">{{ producto.categoria?.nombre }}</p>
-        </div>
-        <div class="card-hover position-absolute">
-          <div>
-            <i class="fa-solid fa-basket-shopping"></i>
-            <i class="fa-solid fa-heart"></i>
-          </div>
-          <h3 class="precioProd">{{ producto.precio }} €</h3>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>

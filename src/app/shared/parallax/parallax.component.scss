@@ -1,24 +1,65 @@
-.parallax {
-    /* The image used */
-    background-image: url('../../../assets/parallax/1.jpg');
-  
-    /* Set a specific height */
-    min-height: 700px;
-  
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+@import "../../../styles/_colors.scss";
 
-.back-color{
-  background-color: rgba(255, 255, 255, 0.75);
+.parallax {
+  /* The image used */
+  background-image: url("../../../assets/parallax/1.jpg");
+
+  /* Set a specific height */
+  min-height: 700px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-@media (max-width: 768px){
+.back-color {
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 80%;
+}
+
+input {
+  border: none;
+  background-color: #eee;
+  width: 550px;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px 0 0 10px;
+}
+
+button {
+  padding: 0 1rem;
+  border: none;
+  border-left: 1px solid $orange;
+  border-radius: 0 10px 10px 0;
+  transition: 0.3s all ease;
+}
+
+button:hover {
+  background-color: $orange;
+}
+
+h1 {
+  font-weight: 100;
+}
+
+p {
+  font-weight: 100;
+}
+
+span {
+  color: $orange;
+  font-weight: 500;
+}
+
+.textDiscount {
+  font-size: 4rem;
+  color: #a57900a6;
+}
+
+@media (max-width: 768px) {
   .parallax {
     min-height: 500px;
-
   }
 }

@@ -8,6 +8,7 @@ export interface IProducts {
   nombre?: string;
   precio?: number;
   descripcion?: string;
+  marca?: string;
   usuario?: {
     nombre?: string;
     _id?: string;
