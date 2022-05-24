@@ -14,22 +14,32 @@ import { AuthGuard } from './servicios/auth/auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'about-us', component: AboutUsComponent},
-  { path: 'contact', component: ContactComponent},
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]  },
-  { path: 'admin/productForm', component: ProductFormComponent, canActivate: [AuthGuard]  },
-  { path: 'admin/categoryForm', component: CategoryFormComponent, canActivate: [AuthGuard]  },
-  { path: 'admin/userForm', component: UserFormComponent, canActivate: [AuthGuard]  },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  {
+    path: 'admin/productForm',
+    component: ProductFormComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/categoryForm',
+    component: CategoryFormComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/userForm',
+    component: UserFormComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'login', component: LoginPageComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: Page404Component },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

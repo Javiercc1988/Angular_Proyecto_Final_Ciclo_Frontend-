@@ -5,10 +5,9 @@ import { environment } from 'src/environments/environment';
 import { SessionStorageService } from '../session-storage/session-storage.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   baseUrl: string = environment.baseUrl; //'http://localhost:8080'
   apiUrl: string = environment.apiAuth; //'api/auth'
   url: string;
@@ -16,20 +15,18 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private sessionStorage: SessionStorageService
-    ) {
+  ) {
     this.url = `${this.baseUrl}/${this.apiUrl}`;
   }
 
   getLogin(userLogin: IUserLogin) {
-
-    this.sessionStorage.set('user', userLogin.correo)
+    this.sessionStorage.set('user', userLogin.correo);
     return this.http.post<any>(`${this.url}/login`, userLogin);
   }
 
-  isLogged(){
-    const user = this.sessionStorage.get('user')
+  isLogged() {
+    const user = this.sessionStorage.get('user');
 
-    return (!user) ? false : true
+    return !user ? false : true;
   }
-
 }
