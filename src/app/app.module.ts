@@ -38,6 +38,9 @@ import { LoginFormComponent } from './pages/login-page/login-form/login-form.com
 import { RegisterFormComponent } from './pages/login-page/register-form/register-form.component';
 import { CategoryFormComponent } from './pages/admin/category-menu/category-form/category-form.component';
 import { UserFormComponent } from './pages/admin/users-menu/user-form/user-form.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { FacialComponent } from './pages/services/facial/facial.component';
+import { CorporalComponent } from './pages/services/corporal/corporal.component';
 
 const interceptors = [
   {
@@ -79,6 +82,9 @@ const interceptors = [
     RegisterFormComponent,
     CategoryFormComponent,
     UserFormComponent,
+    ServicesComponent,
+    FacialComponent,
+    CorporalComponent,
   ],
   imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule,],
   providers: [...interceptors],

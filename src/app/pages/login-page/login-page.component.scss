@@ -1,6 +1,6 @@
 .bgAnimateImage {
-  animation: 3s ease 0.5s normal forwards 1 fadein;
-  -webkit-animation: 3s ease 0.5s normal forwards 1 fadein;
+  animation: 2s ease 0.5s normal forwards 1 fadein;
+  -webkit-animation: 2s ease 0.5s normal forwards 1 fadein;
   opacity: 0;
   min-height: 100vh;
   min-width: 100vh;
@@ -12,14 +12,14 @@
 
 .logo{
     max-width: 200px;
-    animation: 5s ease 1s normal forwards 1 fadein;
-    -webkit-animation: 3s ease 0.5s normal forwards 1 fadein;
+    animation: 2s ease 1s normal forwards 1 fadein;
+    -webkit-animation: 2s ease 1s normal forwards 1 fadein;
     opacity: 0;
 }
 
 .animateLogin {
-  animation: 3s ease 2s normal forwards 1 fadein;
-  -webkit-animation: 3s ease 2s normal forwards 1 fadein;
+  animation: 1s ease 1s normal forwards 1 fadein;
+  -webkit-animation: 1s ease 1s normal forwards 1 fadein;
   opacity: 0;
 }
 

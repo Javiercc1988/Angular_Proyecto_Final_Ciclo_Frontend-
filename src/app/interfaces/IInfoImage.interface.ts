@@ -7,4 +7,5 @@ export interface IInfoImage {
     flexReverse?:boolean;
     littlePadding?:boolean;
     signature?: boolean;
+    background?: boolean;
 }

@@ -10,6 +10,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { Page404Component } from './pages/page404/page404.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { CorporalComponent } from './pages/services/corporal/corporal.component';
+import { FacialComponent } from './pages/services/facial/facial.component';
+import { ServicesComponent } from './pages/services/services.component';
 import { AuthGuard } from './servicios/auth/auth.guard';
 
 const routes: Routes = [
@@ -32,6 +35,14 @@ const routes: Routes = [
     path: 'admin/userForm',
     component: UserFormComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'servicios/facial',
+    component: FacialComponent,
+  },
+  {
+    path: 'servicios/corporal',
+    component: CorporalComponent,
   },
   { path: 'login', component: LoginPageComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

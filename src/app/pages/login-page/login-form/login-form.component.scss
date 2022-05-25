@@ -50,7 +50,7 @@
   margin-top: 2rem;
   width: 150px;
   height: 50px;
-  border: 1px solid #eee;
+  border: 1px solid $orange;
   border-radius: 5px;
   font-size: 20px;
   cursor: pointer;
@@ -66,7 +66,6 @@
 
 .btnlogin:hover {
   color: $orange;
-  border-color: $orange;
 }
 
 .btnlogin::before,
