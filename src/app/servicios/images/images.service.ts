@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ICategorys } from 'src/app/interfaces/ICategorys.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,13 +14,11 @@ export class ImagesService {
     this.url = `${this.baseUrl}/${this.apiUrl}`;
   }
 
-  setUserImage(userId: string, data:any) {
+  setUserImage(userId: string, data: any) {
     return this.http.get<any>(`${this.url}/usuarios/${userId}`, data);
   }
-  
-  setProductImage(userId: any, data:any) {
-    return this.http.put<any>(`${this.url}/productos/${userId}`, data,  {
-      headers: {'Content-Type': 'file'}
-  });
+
+  setProductImage(productId: any, data: any) {
+    return this.http.put<any>(`${this.url}/productos/${productId}`, data);
   }
 }

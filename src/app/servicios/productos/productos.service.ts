@@ -39,14 +39,14 @@ export class ProductosService {
   }
 
   createNewProduct(product: IProducts) {
-    return this.http.post<IProduct>(`${this.url}`, product);
+    return this.http.post<IProducts>(`${this.url}`, product);
   }
 
   editProduct(product: IProducts) {
-    return this.http.put<IProduct>(`${this.url}/${product._id}`, product);
+    return this.http.put<IProducts>(`${this.url}/${product._id}`, product);
   }
 
   deleteProduct(idProduct: string) {
-    return this.http.delete<IProduct>(`${this.url}/${idProduct}`);
+    return this.http.delete<IProducts>(`${this.url}/${idProduct}`);
   }
 }

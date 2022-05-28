@@ -27,9 +27,7 @@ export class ProductMenuComponent implements OnInit {
 
   getDataProduct() {
     this.productService.getProductsData().subscribe((objects) => {
-      console.log('productos -> ', objects);
       this.productArray = objects.productos;
-      console.log('listProducts -> ', this.productArray);
     });
   }
 

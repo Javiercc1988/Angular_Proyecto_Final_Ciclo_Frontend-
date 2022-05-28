@@ -1,11 +1,13 @@
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { ICategorys } from 'src/app/interfaces/ICategorys.interface';
 import { IProducts } from 'src/app/interfaces/IProducts.interface';
 import { ITitleSection } from 'src/app/interfaces/ITitleSection.interface';
 import { ITopSectionBanner } from 'src/app/interfaces/ITopBanner.interface';
 import { CategoryService } from 'src/app/servicios/category/category.service';
+import { ImagesService } from 'src/app/servicios/images/images.service';
 import { ProductosService } from 'src/app/servicios/productos/productos.service';
 
 @Component({
@@ -27,7 +29,7 @@ export class ProductFormComponent implements OnInit {
     styleSubtitle: 'rbt300 font3 mt-3 mb-5',
   };
 
-  productForm:any = new FormGroup({
+  productForm: any = new FormGroup({
     nombre: new FormControl(this.productService.productData.nombre, [
       Validators.required,
     ]),
@@ -39,7 +41,7 @@ export class ProductFormComponent implements OnInit {
     ]),
     descripcion: new FormControl(this.productService.productData.descripcion, [
       Validators.required,
-    ]),
+    ])
   });
 
   get nombre() {
@@ -55,16 +57,14 @@ export class ProductFormComponent implements OnInit {
     return this.productForm.get('descripcion');
   }
 
+
   openModal: boolean = false;
   modalOptions = {};
-
   productData: any;
-
   isReadOnly: boolean = this.productService.readOnly;
+  categoryData: ICategorys[] = [];
+  listaCategorias: ICategorys[] = [];
 
-  categoryData: ICategorys[] = []
-
-  listaCategorias:ICategorys[] = []
   constructor(
     private productService: ProductosService,
     private categoryService: CategoryService,
@@ -74,13 +74,12 @@ export class ProductFormComponent implements OnInit {
   ngOnInit(): void {
     this.productData = this.productService.productData;
 
-    this.categoryService.getCategoryData().subscribe(res => {
-        this.listaCategorias = res.categorias
+    this.categoryService.getCategoryData().subscribe((res) => {
+      this.listaCategorias = res.categorias;
 
-        console.log(this.listaCategorias)
-      });
-    }
-    
+      console.log(this.listaCategorias);
+    });
+  }
 
   clickEditProduct() {
     if (this.productForm.valid) {
@@ -92,8 +91,8 @@ export class ProductFormComponent implements OnInit {
   }
 
   editProduct(product: IProducts) {
-    console.log('metiendo al usuario editado', product);
-    this.productService.editProduct(product).subscribe((res) => {
+    console.log(product)
+      this.productService.editProduct(product).subscribe((res) => {
       console.log('la respuesta', res);
     });
   }
@@ -105,7 +104,7 @@ export class ProductFormComponent implements OnInit {
       this.productService.createNewProduct(product).subscribe((resp) => {
         console.log('La respuesta: ', resp);
       });
-      this.navigateToAdmin()
+      this.navigateToAdmin();
     }
   }
 
