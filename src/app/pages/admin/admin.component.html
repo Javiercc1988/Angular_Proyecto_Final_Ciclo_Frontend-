@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <ng-container *ngFor="let data of sectionsData">
         <div class="cardItemMenu col-lg-2 col-md-5 col-10 m-2 border p-3 text-center" (click)="onClickProduct(data.seccion)">
-          <i class="{{ data.icono }} icon-size mb-4 mt-2 black"></i>
+          <i class="{{ data.icono }}"></i>
           <h3 class="rbt300">{{ data.titulo }} </h3>
           <p class="rbt300">{{ data.cantidad }}</p>
         </div>
@@ -14,15 +14,15 @@
     </div>
   </div>
   
-  <ng-container *ngIf="seccion === 'products' ">
+  <ng-container *ngIf="seccion === 'products'">
     <app-product-menu></app-product-menu>
   </ng-container>
 
-  <ng-container *ngIf="seccion === 'users' ">
+  <ng-container *ngIf="seccion === 'users'">
     <app-users-menu></app-users-menu>
   </ng-container>
   
-  <ng-container *ngIf="seccion === 'categorys' ">
+  <ng-container *ngIf="seccion === 'categorys'">
     <app-category-menu></app-category-menu>
   </ng-container>
 </section>

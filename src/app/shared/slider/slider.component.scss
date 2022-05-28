@@ -2,7 +2,7 @@
     opacity: .9;
 }
 
-.prueba{
+.resize{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,4 +11,11 @@
 
 .prueba2{
     vertical-align: middle;
+}
+
+@media (max-width: 560px){
+    .carousel-caption{
+        display: none;
+    }
+
 }

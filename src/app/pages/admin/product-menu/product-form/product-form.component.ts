@@ -1,9 +1,11 @@
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ICategorys } from 'src/app/interfaces/ICategorys.interface';
 import { IProducts } from 'src/app/interfaces/IProducts.interface';
 import { ITitleSection } from 'src/app/interfaces/ITitleSection.interface';
 import { ITopSectionBanner } from 'src/app/interfaces/ITopBanner.interface';
+import { CategoryService } from 'src/app/servicios/category/category.service';
 import { ProductosService } from 'src/app/servicios/productos/productos.service';
 
 @Component({
@@ -60,14 +62,25 @@ export class ProductFormComponent implements OnInit {
 
   isReadOnly: boolean = this.productService.readOnly;
 
+  categoryData: ICategorys[] = []
+
+  listaCategorias:ICategorys[] = []
   constructor(
     private productService: ProductosService,
+    private categoryService: CategoryService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.productData = this.productService.productData;
-  }
+
+    this.categoryService.getCategoryData().subscribe(res => {
+        this.listaCategorias = res.categorias
+
+        console.log(this.listaCategorias)
+      });
+    }
+    
 
   clickEditProduct() {
     if (this.productForm.valid) {

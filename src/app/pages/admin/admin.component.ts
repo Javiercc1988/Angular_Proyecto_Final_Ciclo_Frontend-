@@ -54,7 +54,6 @@ export class AdminComponent implements OnInit {
       this.usersService.getUsersData(),
       this.categoryService.getCategoryData(),
     ]).subscribe((res) => {
-      console.log(res);
       this.productsLength = res[0].total;
       this.usersLength = res[1].total;
       this.categorysLength = res[2].total;

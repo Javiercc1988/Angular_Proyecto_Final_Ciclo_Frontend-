@@ -20,6 +20,17 @@
     bottom: 0;
 }
 
+
+i{
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    transition: .3s all ease;
+}
+
+i:hover{
+    color: #fd5f25;
+}
+
 @media (max-width: 991px) {
     .mid-worker {
       margin: 3rem 0;

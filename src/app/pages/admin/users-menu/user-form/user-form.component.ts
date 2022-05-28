@@ -82,7 +82,18 @@ export class UserFormComponent implements OnInit {
   userData: any;
   isReadOnly: boolean = this.userService.readOnly;
 
-  constructor(private userService: UsersService, private router: Router) {}
+  userRol:any = [{
+    rol:'ADMIN_ROLE',
+    name: 'ADMIN_ROLE'
+  },
+  {
+    rol:'USER_ROLE',
+    name: 'USER_ROLE'
+  }]
+
+  constructor(private userService: UsersService, private router: Router) {
+    console.log(this.userRol)
+  }
 
   ngOnInit(): void {
     this.userData = this.userService.userData;

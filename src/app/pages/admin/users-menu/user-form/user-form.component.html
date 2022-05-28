@@ -101,13 +101,17 @@
       >
         * La contraseña es incorrecta, mínimo 6 carácteres.
       </div>
-      <input
-        [readonly]="isReadOnly"
+      <select
+      [disabled]="isReadOnly"
         type="text"
         id="rol"
         formControlName="rol"
         placeholder="Rol de usuario"
-      />
+      >
+      <option *ngFor="let rol of userRol; let i = index" [value]="userRol[i].rol">
+        {{rol.name}}
+      </option>
+      </select>
       <div *ngIf="rol.invalid && (rol.dirty || rol.touched)" class="errorForm">
         * El campo es obligatorio.
       </div>

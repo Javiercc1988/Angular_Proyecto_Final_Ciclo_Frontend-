@@ -4,22 +4,16 @@ import { SessionStorageService } from 'src/app/servicios/session-storage/session
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  token: boolean = false;
 
-
-
-  token:boolean = false
-
-  constructor(
-    private sessionStorage: SessionStorageService
-  ) { }
+  constructor(private sessionStorage: SessionStorageService) {}
 
   ngOnInit(): void {
-    if(this.sessionStorage.get('xToken')){
-      this.token = true
+    if (this.sessionStorage.get('xToken')) {
+      this.token = true;
     }
   }
-
 }

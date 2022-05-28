@@ -38,13 +38,17 @@
       >
         * El campo es obligatorio.
       </div>
-      <input
-        [readonly]="isReadOnly"
+      <select
+      [disabled]="isReadOnly"
         type="text"
         id="categoria"
         formControlName="categoria"
         placeholder="Categoria de producto"
-      />
+      >
+      <option *ngFor="let categoria of listaCategorias; let i = index" [value]="listaCategorias[i]._id">
+        {{categoria.nombre}}
+      </option>
+      </select>
       <div
         *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)"
         class="errorForm"
