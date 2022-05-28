@@ -2,20 +2,20 @@
 <app-slider></app-slider>
 <app-delivery-cards></app-delivery-cards>
 <app-title-section [titleSection]="titleCatProd"></app-title-section>
-<app-cat-prod-slider></app-cat-prod-slider>
+<app-cat-prod-slider [SlideConfig]="SlideOne"></app-cat-prod-slider>
 <app-info-image-button></app-info-image-button>
 
 <div class="container">
   <app-title-section [titleSection]="titleNewProd"></app-title-section>
-  <app-cat-prod-slider></app-cat-prod-slider>
 </div>
+<app-cat-prod-slider [SlideConfig]="SlideTwo"></app-cat-prod-slider>
 
 <app-parallax></app-parallax>
 
 <div class="container">
   <app-title-section [titleSection]="titleTopSales"></app-title-section>
-  <app-cat-prod-slider></app-cat-prod-slider>
 </div>
+<app-cat-prod-slider [SlideConfig]="SlideThree"></app-cat-prod-slider>
 
 <app-info-image-button [infoImage]="infoImageStep1"></app-info-image-button>
 <app-footer></app-footer>

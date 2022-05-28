@@ -11,8 +11,6 @@ export class SliderComponent implements OnInit {
     '../../assets/sliderDocs/slider1.jpg',
     '../../assets/sliderDocs/slider3.jpg',
   ];
-
-  // ../../assets/sliderDocs/slider3.jpg
   constructor() {}
 
   ngOnInit(): void {}

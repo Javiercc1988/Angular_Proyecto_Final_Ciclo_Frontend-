@@ -1,39 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {
+  NgbCarouselConfig,
+  NgbSlideEventDirection,
+} from '@ng-bootstrap/ng-bootstrap';
+import { first } from 'rxjs';
+import { IProductCarousel } from 'src/app/interfaces/IProductCarousel.interface';
+import { ProductosService } from 'src/app/servicios/productos/productos.service';
 
 @Component({
   selector: 'app-cat-prod-slider',
   templateUrl: './cat-prod-slider.component.html',
   styleUrls: ['./cat-prod-slider.component.scss'],
+  providers: [NgbCarouselConfig],
 })
 export class CatProdSliderComponent implements OnInit {
-  slideData: string[] = 
-  [
-    '../../assets/catProdSlide/catProdSlide_1.jpg',
-    '../../assets/catProdSlide/catProdSlide_2.jpg',
-    '../../assets/catProdSlide/catProdSlide_3.jpg',
-    '../../assets/catProdSlide/catProdSlide_2.jpg',
-    '../../assets/catProdSlide/catProdSlide_3.jpg',
-    '../../assets/catProdSlide/catProdSlide_1.jpg',
-    '../../assets/catProdSlide/catProdSlide_2.jpg',
-    '../../assets/catProdSlide/catProdSlide_3.jpg',
-    '../../assets/catProdSlide/catProdSlide_1.jpg',
-  ];
+  @Input() SlideConfig: IProductCarousel = {
+    showNavigationArrows: true,
+    showNavigationIndicators: true,
+    keyboard: true,
+    pauseOnHover: true,
+    wrap: true,
+    activeId: 'two',
+    oneProduct: false,
+  };
 
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  slideData: any[] = [];
 
+  constructor(private productService: ProductosService) {}
 
-  index: number = 0;
-
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  next() {
-    this.index ++;
-    console.log(this.index, this.slideData.length)
-  }
-
-  prev() {
-    this.index --;
+  ngOnInit(): void {
+    this.productService
+      .getProductsData()
+      .pipe(first())
+      .subscribe((res) => {
+        res.productos.forEach((element: any, index: number) => {
+          this.slideData.push(element.img);
+        });
+      });
   }
 }

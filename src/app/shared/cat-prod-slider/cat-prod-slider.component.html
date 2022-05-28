@@ -1,24 +1,74 @@
-<div class="container-fluid mt-5 mb-5">
-    <div class="lista-imagenes overflow-hidden d-flex justify-content-center">
-        <button class="btn-prev"[disabled]="index === 0" (click)="prev()">
-            <i class="fa-solid fa-chevron-left orange rounded-circle font2"></i>
-        </button>
-
-        <div class="row">
-            <div class="col-4 prueba">
-                <img class="img-fluid" src="{{ slideData[index] }}" alt="" />
-            </div>
-
-            <div class="col-4 prueba">
-                <img class="img-fluid" src="{{ slideData[index + 1] }}" alt="" />
-            </div>
-
-            <div class="col-4 prueba">
-                <img class="img-fluid" src="{{ slideData[index + 2] }}" alt="" />
-            </div>
-        </div>
-        <button class="btn-next" [disabled]="index === slideData.length - 3" (click)="next()">
-            <i class="fa-solid fa-chevron-right orange rounded-circle font2"></i>
-        </button>
+<ngb-carousel
+  [showNavigationArrows]="SlideConfig.showNavigationArrows"
+  [showNavigationIndicators]="SlideConfig.showNavigationIndicators"
+  [keyboard]="SlideConfig.keyboard"
+  [pauseOnHover]="SlideConfig.pauseOnHover"
+  [wrap]="SlideConfig.wrap"
+  [activeId]="SlideConfig.activeId"
+  class="d-flex justify-content-center pb-5"
+  *ngIf="slideData"
+>
+  <ng-template ngbSlide id="one">
+    <div class="d-flex justify-content-center">
+      <img
+        class="p-2 img-fluid"
+        [src]="slideData[0]"
+        alt="Random first slide"
+      />
+      <img
+        *ngIf="!SlideConfig.oneProduct"
+        class="p-2 img-fluid showImg"
+        [src]="slideData[1]"
+        alt="Random first slide"
+      />
+      <img
+        *ngIf="!SlideConfig.oneProduct"
+        class="p-2 img-fluid showImg"
+        [src]="slideData[2]"
+        alt="Random first slide"
+      />
     </div>
-</div>
+  </ng-template>
+  <ng-template ngbSlide id="two">
+    <div class="d-flex justify-content-center">
+      <img
+        class="p-2 img-fluid showImg"
+        [src]="slideData[3]"
+        alt="Random first slide"
+      />
+      <img
+        *ngIf="!SlideConfig.oneProduct"
+        class="p-2 img-fluid"
+        [src]="slideData[4]"
+        alt="Random first slide"
+      />
+      <img
+        *ngIf="!SlideConfig.oneProduct"
+        class="p-2 img-fluid showImg"
+        [src]="slideData[5]"
+        alt="Random first slide"
+      />
+    </div>
+  </ng-template>
+  <ng-template ngbSlide id="three">
+    <div class="d-flex justify-content-center">
+      <img
+        class="p-2 img-fluid showImg"
+        [src]="slideData[6]"
+        alt="Random first slide"
+      />
+      <img
+        *ngIf="!SlideConfig.oneProduct"
+        class="p-2 img-fluid showImg"
+        [src]="slideData[7]"
+        alt="Random first slide"
+      />
+      <img
+        *ngIf="!SlideConfig.oneProduct"
+        class="p-2 img-fluid"
+        [src]="slideData[8]"
+        alt="Random first slide"
+      />
+    </div>
+  </ng-template>
+</ngb-carousel>

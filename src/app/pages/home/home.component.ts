@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IInfoImage } from 'src/app/interfaces/IInfoImage.interface';
+import { IProductCarousel } from 'src/app/interfaces/IProductCarousel.interface';
 import { ITitleSection } from 'src/app/interfaces/ITitleSection.interface';
 
 @Component({
@@ -42,6 +43,36 @@ export class HomeComponent implements OnInit {
     button: false,
     flexReverse:true,
   }
+
+  SlideOne: IProductCarousel = {
+    showNavigationArrows: true,
+    showNavigationIndicators: true,
+    keyboard: true,
+    pauseOnHover: true,
+    wrap: true,
+    activeId: 'one',
+    oneProduct: false,
+  };
+
+  SlideTwo: IProductCarousel = {
+    showNavigationArrows: false,
+    showNavigationIndicators: true,
+    keyboard: true,
+    pauseOnHover: true,
+    wrap: true,
+    activeId: 'two',
+    oneProduct: false,
+  };
+  
+  SlideThree: IProductCarousel = {
+    showNavigationArrows: true,
+    showNavigationIndicators: false,
+    keyboard: true,
+    pauseOnHover: true,
+    wrap: true,
+    activeId: 'three',
+    oneProduct: false,
+  };
 
   constructor() { }
 
