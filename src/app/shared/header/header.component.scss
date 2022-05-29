@@ -31,8 +31,28 @@ header {
   display: none;
 }
 
-.nav-item{
+.nav-item {
   font-weight: 100;
+}
+
+.login {
+  border: 1px solid rgba(189, 189, 189, 0.349);
+  border-radius: 10px;
+  transition: 0.3s all ease-in-out;
+}
+
+.login:hover {
+  border: 1px solid $orange;
+}
+
+.logged {
+  color: $orange;
+  font-size: 1.5rem;
+  transition: 0.3s all ease;
+}
+
+.logged:hover {
+  color: black;
 }
 
 @media (max-width: 1500px) {
@@ -91,6 +111,6 @@ header {
   }
 
   .navbar {
-    margin-right: 3rem;
+    padding: 1rem 3rem;
   }
 }

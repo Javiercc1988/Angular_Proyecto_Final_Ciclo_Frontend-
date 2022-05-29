@@ -71,12 +71,15 @@
             * El campo es obligatorio
           </div>
           <button
+          (click)="openModal()"
             [disabled]="clientContact.invalid"
             type="button"
             class="btn boton mt-5"
           >
             Enviar
           </button>
+
+          
         </form>
       </div>
     </div>

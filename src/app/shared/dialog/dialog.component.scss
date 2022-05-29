@@ -1,0 +1,23 @@
+@import '../../../styles/colors';
+
+.dialog{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    max-width: 500px;
+    min-width: 320px;
+    min-height: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+i{
+    font-size: 3rem;
+    margin: 2rem 0;
+    color: $orange;
+}
+
+p{
+    text-align: center;
+    margin: 1rem 0 2rem 0;
+}

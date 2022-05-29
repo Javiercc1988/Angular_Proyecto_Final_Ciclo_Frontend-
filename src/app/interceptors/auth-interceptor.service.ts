@@ -19,9 +19,10 @@ import { SessionStorageService } from '../servicios/session-storage/session-stor
 export class AuthInterceptor implements HttpInterceptor {
   url401 = '';
   reload = 0;
-  constructor(private router: Router,
-    private sessionStorage: SessionStorageService,
-    ) {}
+  constructor(
+    private router: Router,
+    private sessionStorage: SessionStorageService
+  ) {}
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler

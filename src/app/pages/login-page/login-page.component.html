@@ -1,17 +1,15 @@
-<div class="bgAnimateImage container-fluid">
-  <a href="/"
-    ><img
-      class="logo pt-3"
-      src="../../../assets/logo/logo_small.png"
-      alt="logo"
-  /></a>
-  <div class="animateLogin pb-5">
+<app-header></app-header>
+
+<div class="bgAnimateImage">
+  <div class="animateLogin pt-5 pb-5">
     <div *ngIf="!register">
-      <app-login-form (changeRegister)="registerForm($event)">
-          </app-login-form>
+      <app-login-form (changeRegister)="registerForm($event)"> </app-login-form>
     </div>
     <div *ngIf="register">
-      <app-register-form  (changeRegister)="registerForm($event)"></app-register-form>
+      <app-register-form
+        (changeRegister)="registerForm($event)"
+      ></app-register-form>
     </div>
   </div>
 </div>
+<app-footer></app-footer>

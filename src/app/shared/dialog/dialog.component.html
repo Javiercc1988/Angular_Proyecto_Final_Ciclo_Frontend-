@@ -1,0 +1,6 @@
+<div class="container p-5 dialog">
+    <span *ngIf="modal.icono"><i class="{{modal.icono}}"></i></span>
+    <h1 *ngIf="modal.titulo">{{modal.titulo}}</h1>
+    <p *ngIf="modal.subtitulo">{{modal.subtitulo}}</p>
+    <button class="btn button" (click)="close()" *ngIf="modal.button">{{modal.buttonText}}</button>
+</div>

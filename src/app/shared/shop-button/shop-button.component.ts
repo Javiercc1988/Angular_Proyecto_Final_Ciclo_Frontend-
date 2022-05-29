@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop-button',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class ShopButtonComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  navigateto(){
+    this.router.navigate(['/products'])
   }
 
 }

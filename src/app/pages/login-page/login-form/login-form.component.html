@@ -12,14 +12,26 @@
         formControlName="correo"
         placeholder="Correo"
       />
+      <div
+      *ngIf="correo.invalid && (correo.dirty || correo.touched)"
+      class="errorForm"
+    >
+      * El formato de correo electrónico es incorrecto.
+    </div>
       <input
         type="password"
         id="password"
         formControlName="password"
         placeholder="Contraseña"
       />
+      <div
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+      class="errorForm"
+    >
+      * La contraseña es incorrecta, mínimo 6 carácteres.
+    </div>
       <div class="d-flex justify-content-end">
-        <button (click)="getLoginToken()" class="btnlogin" type="submit">
+        <button [disabled]="!loginUser.valid"(click)="getLoginToken()" class="btnlogin" type="submit">
           Login
         </button>
         <!-- <button (click)="logout()" class="btn button" type="submit">

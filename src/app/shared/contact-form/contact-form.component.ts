@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { IContactDescription } from 'src/app/interfaces/IContactDescription.interface';
+import { DeliveryCardsComponent } from '../delivery-cards/delivery-cards.component';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-contact-form',
@@ -60,9 +64,39 @@ export class ContactFormComponent implements OnInit {
     return this.clientContact.get('texto');
   }
 
-  constructor() {}
+  contenido:string = `<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>`
+
+  constructor(
+    private router: Router,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.clientContact.patchValue(this.clientContact);
+  }
+
+
+  openModal(){
+    const modalRef = this.modalService.open(DialogComponent, {centered: true})
+    
+    modalRef.componentInstance.modal = {
+      titulo: '¡Gracias!',
+      subtitulo: 'Su consulta se ha enviado correctamente.',
+      icono: 'fa-solid fa-envelope-circle-check',
+      close: true,
+      button: true,
+      buttonText: 'Cerrar'
+    }
   }
 }

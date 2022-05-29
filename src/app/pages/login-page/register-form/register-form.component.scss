@@ -110,3 +110,9 @@
 .btnlogin:hover {
   background: #fff;
 }
+
+.btnlogin:disabled{
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: .7;
+}

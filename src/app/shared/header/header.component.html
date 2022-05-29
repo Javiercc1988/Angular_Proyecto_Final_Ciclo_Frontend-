@@ -41,9 +41,13 @@
         <li *ngIf="token" class="nav-item">
           <a [routerLink]="['/admin']" routerLinkActive="active-link" class="nav-link">Admin</a>
         </li>
-      </ul>
+        <li class="nav-item">
+          <a *ngIf="!token" [routerLink]="['/admin']" routerLinkActive="active-link" class="nav-link login">Sign in / Register</a>
+          <a *ngIf="token" [routerLink]="['/profile']" routerLinkActive="active-link" class="nav-link"><i class="fa-solid fa-user-astronaut logged"></i></a>
+        </li>
 
-      <i [routerLink]="['/login']" routerLinkActive="active-link" class="fa-solid fa-user"></i>      
+      </ul>
+      
     </div>
 </nav>
 </header>

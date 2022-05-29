@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { Page404Component } from './pages/page404/page404.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { CorporalComponent } from './pages/services/corporal/corporal.component';
 import { FacialComponent } from './pages/services/facial/facial.component';
 import { ServicesComponent } from './pages/services/services.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   {
     path: 'admin/productForm',
     component: ProductFormComponent,

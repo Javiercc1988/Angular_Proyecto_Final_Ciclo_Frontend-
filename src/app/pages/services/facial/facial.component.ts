@@ -10,7 +10,7 @@ export class FacialComponent implements OnInit {
 
   infoImageStep1:IInfoImage = {
     img: '../../../../assets/services/facial/facial1.jpg',
-    title: "Una nueva forma de cuidarte",
+    title: "INDIBA Facial",
     firstParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     secondParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     button: false,
@@ -18,7 +18,7 @@ export class FacialComponent implements OnInit {
   }
   infoImageStep2:IInfoImage = {
     img: '../../../../assets/services/facial/facial2.jpg',
-    title: "Una nueva forma de cuidarte",
+    title: "Limpieza facial oxigenante",
     firstParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     secondParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     button: false,
@@ -27,7 +27,7 @@ export class FacialComponent implements OnInit {
   }
   infoImageStep3:IInfoImage = {
     img: '../../../../assets/services/facial/facial3.webp',
-    title: "Una nueva forma de cuidarte",
+    title: "Terapia facial relajante",
     firstParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     secondParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     button: false,
@@ -36,7 +36,7 @@ export class FacialComponent implements OnInit {
   }
   infoImageStep4:IInfoImage = {
     img: '../../../../assets/services/facial/facial4.webp',
-    title: "Una nueva forma de cuidarte",
+    title: "Medicina estética facial",
     firstParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     secondParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     button: false,

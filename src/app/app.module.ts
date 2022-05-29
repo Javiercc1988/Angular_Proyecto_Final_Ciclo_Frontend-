@@ -41,6 +41,8 @@ import { UserFormComponent } from './pages/admin/users-menu/user-form/user-form.
 import { ServicesComponent } from './pages/services/services.component';
 import { FacialComponent } from './pages/services/facial/facial.component';
 import { CorporalComponent } from './pages/services/corporal/corporal.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { DialogComponent } from './shared/dialog/dialog.component';
 
 const interceptors = [
   {
@@ -85,6 +87,8 @@ const interceptors = [
     ServicesComponent,
     FacialComponent,
     CorporalComponent,
+    ProfileComponent,
+    DialogComponent,
   ],
   imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule,],
   providers: [...interceptors],

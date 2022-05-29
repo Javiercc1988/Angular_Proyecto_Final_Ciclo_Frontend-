@@ -10,7 +10,7 @@ export class CorporalComponent implements OnInit {
   
   infoImageStep1:IInfoImage = {
     img: '../../../../assets/services/corporal/corporal1.jpg',
-    title: "Una nueva forma de cuidarte",
+    title: "INDIBA Corporal",
     firstParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     secondParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     button: false,
@@ -18,7 +18,7 @@ export class CorporalComponent implements OnInit {
   }
   infoImageStep2:IInfoImage = {
     img: '../../../../assets/services/corporal/corporal2.jpg',
-    title: "Una nueva forma de cuidarte",
+    title: "Maderoterapia drenante",
     firstParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     secondParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     button: false,
@@ -27,7 +27,7 @@ export class CorporalComponent implements OnInit {
   }
   infoImageStep3:IInfoImage = {
     img: '../../../../assets/services/corporal/corporal3.jpg',
-    title: "Una nueva forma de cuidarte",
+    title: "Masaje descontracturante",
     firstParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     secondParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     button: false,
@@ -36,7 +36,7 @@ export class CorporalComponent implements OnInit {
   }
   infoImageStep4:IInfoImage = {
     img: '../../../../assets/services/corporal/corporal4.jpg',
-    title: "Una nueva forma de cuidarte",
+    title: "Masajes terapéuticos relajantes",
     firstParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     secondParagraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita soluta cum, reprehenderit tenetur tempora itaque voluptatum. Ipsam, maiores ipsum. Cum consectetur eveniet ex quod nihil quos deleniti fugiat ullam dolorum.",
     button: false,
