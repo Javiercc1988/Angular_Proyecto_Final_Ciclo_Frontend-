@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://restserver-nodejs-javier.herokuapp.com',
+  baseUrl: 'https://proyecto-final-api-produccion.herokuapp.com',
   apiProducts: 'api/productos',
   apiUsers: 'api/users',
   apiAuth: "api/auth",
