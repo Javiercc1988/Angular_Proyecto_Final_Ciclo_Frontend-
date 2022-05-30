@@ -41,7 +41,7 @@ export class ProductFormComponent implements OnInit {
     ]),
     descripcion: new FormControl(this.productService.productData.descripcion, [
       Validators.required,
-    ])
+    ]),
   });
 
   get nombre() {
@@ -56,7 +56,6 @@ export class ProductFormComponent implements OnInit {
   get descripcion() {
     return this.productForm.get('descripcion');
   }
-
 
   openModal: boolean = false;
   modalOptions = {};
@@ -81,6 +80,9 @@ export class ProductFormComponent implements OnInit {
     });
   }
 
+  /**
+   * Función para establecer el producto seleccionado, actualizar los datos modificados haciendo uso de la funcion editProduct() y navegar hasta admin haciendo uso de la funcion navigateToAdmin().
+   */
   clickEditProduct() {
     if (this.productForm.valid) {
       let product = this.productForm.value;
@@ -91,8 +93,8 @@ export class ProductFormComponent implements OnInit {
   }
 
   editProduct(product: IProducts) {
-    console.log(product)
-      this.productService.editProduct(product).subscribe((res) => {
+    console.log(product);
+    this.productService.editProduct(product).subscribe((res) => {
       console.log('la respuesta', res);
     });
   }

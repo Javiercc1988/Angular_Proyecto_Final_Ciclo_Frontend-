@@ -20,6 +20,9 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  /**
+   * Función para cerrar la sesión del usuario.
+   */
   logout(){
     this.sessionStorage.deleteItemInStorage('user')
     this.sessionStorage.deleteItemInStorage('xToken')

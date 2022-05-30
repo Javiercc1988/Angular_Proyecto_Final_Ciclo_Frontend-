@@ -25,8 +25,10 @@ export class CategoryFormComponent implements OnInit {
     styleSubtitle: 'rbt300 font3 mt-3 mb-5',
   };
 
-  categoryForm:any = new FormGroup({
-    nombre: new FormControl(this.categoryService.categoryData.nombre, [Validators.required]),
+  categoryForm: any = new FormGroup({
+    nombre: new FormControl(this.categoryService.categoryData.nombre, [
+      Validators.required,
+    ]),
   });
 
   get nombre() {
@@ -35,19 +37,22 @@ export class CategoryFormComponent implements OnInit {
 
   newCategory: ICategorys = {};
 
-  categoryData: ICategorys = {}
+  categoryData: ICategorys = {};
 
-  isReadOnly: boolean = this.categoryService.readOnly
+  isReadOnly: boolean = this.categoryService.readOnly;
 
   constructor(
     private router: Router,
     private categoryService: CategoryService
   ) {}
 
-  ngOnInit(): void {  
-    this.categoryData = this.categoryService.categoryData
+  ngOnInit(): void {
+    this.categoryData = this.categoryService.categoryData;
   }
 
+  /**
+   * Función para establecer la categoría seleccionada, actualizar los datos modificados haciendo uso de la funcion createCategory() y navegar hasta admin haciendo uso de la funcion navigateToAdmin().
+   */
   clickCreateCategory() {
     if (this.categoryForm.valid) {
       this.newCategory = this.categoryForm.value;
@@ -58,7 +63,7 @@ export class CategoryFormComponent implements OnInit {
 
   createCategory(category: ICategorys) {
     console.log('metiendo categoria nueva');
-    this.categoryService.readOnly = false
+    this.categoryService.readOnly = false;
     this.categoryService.createNewCategory(category).subscribe((res) => {
       console.log('la respuesta', res);
     });
@@ -66,10 +71,10 @@ export class CategoryFormComponent implements OnInit {
 
   clickEditCategory() {
     if (this.categoryForm.valid) {
-      let category = this.categoryService.categoryData
-      category.nombre = this.categoryForm.value.nombre
-      this.editCategory(category)
-      this.navigateToAdmin()
+      let category = this.categoryService.categoryData;
+      category.nombre = this.categoryForm.value.nombre;
+      this.editCategory(category);
+      this.navigateToAdmin();
     }
   }
 

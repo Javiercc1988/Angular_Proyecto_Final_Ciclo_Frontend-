@@ -49,12 +49,19 @@ export class CategoryMenuComponent implements OnInit {
     });
   }
 
+  /**
+   * Función para establecer en modo readOnly el formulario y evitar que el usuario pueda modificarlo.
+   * @param category
+   */
   infoCategoryReadOnly(category: ICategorys) {
     this.categoryService.saveDataCategory(category);
     this.categoryService.readOnly = true;
     this.router.navigate(['admin/categoryForm']);
   }
 
+  /**
+   * Función para cambiar eliminar el modo readOnly en caso de que estuviese establecido, vaciar los datos del servicio usuarios, y navegar a la siguiente página.
+   */
   navigateToNewCategory() {
     this.categoryService.categoryData = {};
     this.categoryService.readOnly = false;

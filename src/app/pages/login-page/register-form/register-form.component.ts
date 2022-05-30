@@ -71,10 +71,8 @@ export class RegisterFormComponent implements OnInit {
       telefono: this.createNewUser.value.telefono,
       password: this.createNewUser.value.password,
     };
-    console.log('USER DATAAAAAAAAAAAAAAAAAAAAAAA: ', userData);
 
     this.userService.createNewUser(userData).subscribe((res) => {
-      console.log('La respuesta: ', res);
     });
   }
 

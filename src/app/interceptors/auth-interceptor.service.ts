@@ -23,6 +23,15 @@ export class AuthInterceptor implements HttpInterceptor {
     private router: Router,
     private sessionStorage: SessionStorageService
   ) {}
+
+
+  /**
+   * Función creada para establecer un interceptor de peticiones HTTP, se encarga de comprobar que todas las peticiones que lo necesiten llevan el encabezado de xToken necesario para realizar las peticiones que lo requieran.
+   * @param req 
+   * @param next 
+   * @returns 
+   */
+
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
@@ -76,7 +85,5 @@ export class AuthInterceptor implements HttpInterceptor {
         })
       );
     }
-
-    // return next.handle(request)
   }
 }

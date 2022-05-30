@@ -48,6 +48,9 @@ export class AdminComponent implements OnInit {
     this.multipleHttpRequestSync();
   }
 
+  /**
+   * Función para realizar de forma paralela y obtener una respuesta sincronizada en peticiones http 
+   */
   multipleHttpRequestSync() {
     forkJoin([
       this.productService.getProductsData(),
@@ -61,6 +64,9 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  /**
+   * Función que introduce la información de las tarjetas de información
+   */
   setInfoCards() {
     this.sectionsData.push(
       {
@@ -84,6 +90,10 @@ export class AdminComponent implements OnInit {
     );
   }
 
+  /**
+   * Función onclick que modifica el parametro sección con el parámetro recibido.
+   * @param param 
+   */
   onClickProduct(param: any) {
     if (param) {
       this.seccion = param;

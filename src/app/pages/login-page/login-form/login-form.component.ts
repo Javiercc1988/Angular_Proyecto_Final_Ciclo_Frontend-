@@ -14,7 +14,7 @@ export class LoginFormComponent implements OnInit {
   @Output() changeRegister = new EventEmitter<boolean>();
 
   xToken: string = '';
-  loginUser:any = new FormGroup({
+  loginUser: any = new FormGroup({
     correo: new FormControl('', [
       Validators.required,
       Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
@@ -40,6 +40,9 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Función para validar la autenticación del usuario.
+   */
   getLoginToken() {
     const logginData: IUserLogin = {
       correo: this.loginUser.value.correo,
@@ -56,6 +59,11 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
+  /**
+   * Función que establece el Token en el sessionStorage haciendo uso del servicio sessionStorage.
+   * @param key
+   * @param token
+   */
   setToken(key: string, token: string) {
     this.sessionStorage.set(key, token);
   }
@@ -64,6 +72,9 @@ export class LoginFormComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
+  /**
+   * Función para cerrar la cuenta de usuario eliminando el xToken del sessionStorage.
+   */
   logout() {
     this.sessionStorage.deleteItemInStorage('xToken');
     this.navigateToHome();
@@ -72,6 +83,4 @@ export class LoginFormComponent implements OnInit {
   register(emit: boolean) {
     this.changeRegister.emit(emit);
   }
-
-  
 }

@@ -1,6 +1,11 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 export class CustomValidators {
+
+  /**
+   * Clase creada para realizar una validación personalizada del campo DNI comprobando que la numeración y la letra son correctas.
+   * @returns 
+   */
   static checkDNI(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
       const valueToString = new String(control.value);

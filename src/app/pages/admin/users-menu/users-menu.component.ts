@@ -52,12 +52,19 @@ export class UsersMenuComponent implements OnInit {
     });
   }
 
+  /**
+   * Función para establecer en modo readOnly el formulario y evitar que el usuario pueda modificarlo.
+   * @param user
+   */
   infoUserReadOnly(user: IUsers) {
     this.usersService.saveDataUser(user);
     this.usersService.readOnly = true;
     this.router.navigate(['admin/userForm']);
   }
-  
+
+  /**
+   * Función para cambiar eliminar el modo readOnly en caso de que estuviese establecido, vaciar los datos del servicio usuarios, y navegar a la siguiente página.
+   */
   navigateToNewUser() {
     this.usersService.userData = {};
     this.usersService.readOnly = false;

@@ -19,11 +19,19 @@ export class AuthService {
     this.url = `${this.baseUrl}/${this.apiUrl}`;
   }
 
+  /**
+   * Función encargada de setear el correo del usuario en el session storage
+   * @param userLogin Datos del usuario a traer el login
+   * @returns
+   */
   getLogin(userLogin: IUserLogin) {
     this.sessionStorage.set('user', userLogin.correo);
     return this.http.post<any>(`${this.url}/login`, userLogin);
   }
-
+  /**
+   * Función encargada de comprobar si el usuario está logueado a traves del session storage
+   * @returns
+   */
   isLogged() {
     const user = this.sessionStorage.get('user');
 

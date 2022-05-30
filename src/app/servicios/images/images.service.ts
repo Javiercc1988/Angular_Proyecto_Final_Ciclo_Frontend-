@@ -14,10 +14,22 @@ export class ImagesService {
     this.url = `${this.baseUrl}/${this.apiUrl}`;
   }
 
+  /**
+   * Función con endpoint implementado para añadir una imagen a un usuario concreto.
+   * @param userId Id concreta del usuario a modificar
+   * @param data Datos de la imagen
+   * @returns
+   */
   setUserImage(userId: string, data: any) {
     return this.http.get<any>(`${this.url}/usuarios/${userId}`, data);
   }
 
+  /**
+   * Función con endpoint implementado para añadir una imagen a un producto concreto.
+   * @param productId Id concreta del producto a modificar
+   * @param data Datos de la imagen
+   * @returns
+   */
   setProductImage(productId: any, data: any) {
     return this.http.put<any>(`${this.url}/productos/${productId}`, data);
   }

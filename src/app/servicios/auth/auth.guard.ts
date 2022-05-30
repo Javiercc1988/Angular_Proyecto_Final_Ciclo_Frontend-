@@ -10,6 +10,13 @@ import { AuthService } from './auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private router: Router, private AuthService: AuthService) {}
 
+  /**
+   *
+   * @param route Ruta especifica que podremos activar.
+   * @param state Estado de la ruta actual
+   * @returns Retorna un valor booleano.
+   */
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const currentUser = this.AuthService.isLogged();
     if (currentUser) {
