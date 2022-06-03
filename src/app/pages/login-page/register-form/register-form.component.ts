@@ -1,7 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IUserLogin } from 'src/app/interfaces/IUserLogin.interface';
 import { IUsers } from 'src/app/interfaces/IUsers.interface';
+import { AuthService } from 'src/app/servicios/auth/auth.service';
+import { SessionStorageService } from 'src/app/servicios/session-storage/session-storage.service';
 import { UsersService } from 'src/app/servicios/users/users.service';
 import { CustomValidators } from 'src/app/validators/custom-validators';
 
@@ -13,7 +16,9 @@ import { CustomValidators } from 'src/app/validators/custom-validators';
 export class RegisterFormComponent implements OnInit {
   @Output() changeRegister = new EventEmitter<boolean>();
 
-  createNewUser:any = new FormGroup({
+  xToken: string = '';
+
+  createNewUser: any = new FormGroup({
     nombre: new FormControl('', [Validators.required]),
     apellidos: new FormControl('', [Validators.required]),
     dni: new FormControl('', [
@@ -58,7 +63,12 @@ export class RegisterFormComponent implements OnInit {
     return this.createNewUser.get('password');
   }
 
-  constructor(private userService: UsersService, private router: Router) {}
+  constructor(
+    private userService: UsersService,
+    private router: Router,
+    private authService: AuthService,
+    private sessionStorage: SessionStorageService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -73,14 +83,35 @@ export class RegisterFormComponent implements OnInit {
     };
 
     this.userService.createNewUser(userData).subscribe((res) => {
+      this.getLoginToken(userData.correo, userData.password);
     });
   }
 
-  navigateToHome() {
-    this.router.navigate(['/home']);
+  getLoginToken(correo: any, password: any) {
+    const logginData: IUserLogin = {
+      correo: correo,
+      password: password,
+    };
+
+    this.authService.getLogin(logginData).subscribe((user) => {
+      console.log('user', user);
+      if (user.token) {
+        this.xToken = user.token;
+        this.setToken('xToken', this.xToken);
+      }
+      this.navigateToHome();
+    });
+  }
+
+  setToken(key: string, token: string) {
+    this.sessionStorage.set(key, token);
   }
 
   register(emit: boolean) {
     this.changeRegister.emit(emit);
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/home']);
   }
 }
